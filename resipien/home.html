@@ -7,8 +7,35 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+        <link rel="stylesheet" href="../libs/css/bottom-bar.css">
     </head>
     <body style="background-color:#f7f7f7;">
-        <h1>Resipien</h1>
+         <div class="container">
+            <h1>Resipien</h1>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: red; margin-bottom: 20px;"></div>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: blue; margin-bottom: 20px;"></div>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: green; margin-bottom: 20px;"></div>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: greenyellow; margin-bottom: 20px;"></div>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: goldenrod; margin-bottom: 20px;"></div>
+        </div>
+        
+         <!-- START - INCLUDE THIS BOTTOM BAR IN EVERY HTML PAGE AFTER LOGIN -->
+         <div id="bottom-bar" 
+         style="width: 100%; height: 75px; background-color:#ffffff;bottom: 0; 
+         position: fixed;margin: 0;
+         box-shadow: inset 0px 3px 3px -3px rgba(50, 50, 50, 0.75); text-align: center">
+           <center>
+                <table>
+                    <tr>
+                        <td class="menu active"><i class="fas fa-home"></i><br/>Beranda</td>
+                        <td class="menu"><i class="fas fa-bell"></i><br/>Notifikasi</td>
+                        <td class="menu"><i class="fas fa-file"></i><br/>Riwayat</td>
+                        <td class="menu"><i class="fas fa-user-circle"></i><br/>Profil</td>
+                    </tr>
+                </table>
+            </center>
+         </div>
+         <!-- END - INCLUDE THIS BOTTOM BAR IN EVERY HTML PAGE AFTER LOGIN -->
     </body>
 </html>

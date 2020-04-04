@@ -1,0 +1,12 @@
+.menu{
+    font-size: 13px;
+    padding: 20px;
+    text-align: center;
+    color:lightslategray;
+}
+.menu.active{
+    color: #ee4540;
+}
+.fas{
+    font-size: 30px;
+}
