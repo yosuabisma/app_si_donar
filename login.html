@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App Si Donar</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                var emailArray = ["resipien@mail.com", "pendonor@mail.com"];
+                var passwordArray = ["resipien", "pendonor"];
+                $("#login-failed").hide();
+                $("#login-button").click(function(){
+                    var email = $("#email").val();
+                    var pwd = $("#pwd").val();
+                    for (var i = 0; i < emailArray.length; i++) {
+                        if (email == emailArray[i] && pwd == passwordArray[i]) {
+                            if(email == "resipien@mail.com"){
+                                window.location.href="resipien/home.html"
+                            }
+                            if(email == "pendonor@mail.com"){
+                                window.location.href="pendonor/home.html"
+                            }
+                        } else {
+                            $("#login-failed").slideDown();
+                        }
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body style="background-color:#f7f7f7;">
+        <div class="alert alert-danger" id="login-failed">
+            <strong>Gagal Masuk!</strong> Email atau Password salah
+        </div>
+        <div id="home-screen" class="container" style="text-align:center; margin-top: 40px;">
+            <img src="src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive"
+            style="height:150px;width:150px">
+            <h2 style="font-weight: bold; margin-top:-20px; letter-spacing: 1px">Si Donar</h2>
+            <div class="form-section" style="margin-top: 90px;">
+                <div class="container" style="padding-bottom: 60px;">
+                    <h6>Email:</h6>
+                    <input type="email" class="form-control" placeholder="Masukkan Email" id="email">
+                    <br/>
+                    <h6>Password:</h6>
+                    <input type="password" class="form-control" placeholder="Masukkan Password" id="pwd">
+                </div>
+                <button type="button" id="login-button" class="btn btn-danger" style="width: 300px; padding: 8px; border-radius: 8px">
+                    Masuk
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
