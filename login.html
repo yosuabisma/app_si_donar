@@ -7,23 +7,24 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <!-- START - include this script to access local storage function etc-->
+        <script src="libs/js/si-donar.js"></script>
+        <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
-                var emailArray = ["resipien@mail.com", "pendonor@mail.com"];
-                var passwordArray = ["resipien", "pendonor"];
+                var emailArray = ["user@email.com", "yosua@email.com", "william@email.com", "fahmi@email.com", "marcel@email.com", "intan@email.com"];
+                var passwordArray = ["user", "yosua", "william", "fahmi", "marcel", "intan"];
+                var nameArray = ["Pengguna", "Yosua Bisma", "William Adjandra", "Fahmi Alaydrus", "Marcellino", "Intania Cahya"]
                 $("#login-failed").hide();
                 $("#login-button").click(function(){
                     var email = $("#email").val();
                     var pwd = $("#pwd").val();
                     for (var i = 0; i < emailArray.length; i++) {
                         if (email == emailArray[i] && pwd == passwordArray[i]) {
-                            if(email == "resipien@mail.com"){
-                                window.location.href="resipien/home.html"
-                            }
-                            if(email == "pendonor@mail.com"){
-                                window.location.href="pendonor/home.html"
-                            }
-                        } else {
+                            window.location.href="user/home.html";
+                            setUsername(nameArray[i]);
+                        }
+                        if(email != emailArray[i] || pwd != passwordArray[i]) {
                             $("#login-failed").slideDown();
                         }
                     }

@@ -7,13 +7,23 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <!-- START - include this script to access local storage function etc-->
+        <script src="libs/js/si-donar.js"></script>
+        <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
                 $("#login-screen").hide();
                 $("#loading-screen").fadeIn(500);
                 setTimeout(function() {
                     $("#loading-screen").hide();
-                    $("#login-screen").fadeIn(250);
+                    // enable this comment to test clear local storage
+                    // removeUsername();
+                    if(getUsername() == null){
+                        $("#login-screen").fadeIn(250);
+                    }else{
+                        window.location.href="user/home.html";
+                    }
+                   
                 }, 2000);
             });
         </script>

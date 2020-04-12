@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App Si Donar</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <!-- START - include this css-->
+        <link rel="stylesheet" href="../libs/css/si-donar.css">
+        <link href="../libs/css/font-awesome/css/all.css" rel="stylesheet"> 
+        <!-- END - include this css-->
+        <!-- START - include this script to access local storage function etc-->
+        <script src="../libs/js/si-donar.js"></script>
+        <!-- END - include this script to access local storage function etc-->
+        <script>
+            $(document).ready(function(){
+                var username = getUsername();
+                console.log(username);
+            });
+        </script>
+    </head>
+    <body style="background-color:#f7f7f7;">
+        <div class="container">
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: red; margin-bottom: 20px;"></div>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: blue; margin-bottom: 20px;"></div>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: green; margin-bottom: 20px;"></div>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: greenyellow; margin-bottom: 20px;"></div>
+            <div style="border-radius: 8px; width: 100%;height: 300px;background-color: goldenrod; margin-bottom: 20px;"></div>
+        </div>
+        
+        <!-- START - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+        <div id="top-bar" class="top-bar">
+                <span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px"> Si Donar</span>
+                <p class="far fa-bell notification-bell"></p>
+        </div>
+        <div id="bottom-bar" class="bottom-bar">
+           <center>
+                <table>
+                    <tr>
+                        <td class="menu active"><i class="fas fa-home"></i></td>
+                        <td class="menu"><i class="fas fa-tint"></i></td>
+                        <td class="menu"><i class="far fa-user-circle"></i></td>
+                    </tr>
+                    <tr>
+                        <td class="menu">Beranda</td>
+                        <td class="menu">Cari Darah</td>
+                        <td class="menu">Profil</td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+         <!-- END - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+    </body>
+</html>
