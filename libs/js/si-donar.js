@@ -7,5 +7,9 @@ function getUsername(){
 }
 
 function removeUsername(){
-    return localStorage.removeItem("name");
+    localStorage.removeItem("name");
+}
+
+function logoutApp(){
+    removeUsername();
 }

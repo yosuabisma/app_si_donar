@@ -20,13 +20,14 @@
                     var email = $("#email").val();
                     var pwd = $("#pwd").val();
                     for (var i = 0; i < emailArray.length; i++) {
+                        if(email != emailArray[i] || pwd != passwordArray[i]) {
+                            $("#login-failed").slideDown();
+                        }
                         if (email == emailArray[i] && pwd == passwordArray[i]) {
                             window.location.href="user/home.html";
                             setUsername(nameArray[i]);
                         }
-                        if(email != emailArray[i] || pwd != passwordArray[i]) {
-                            $("#login-failed").slideDown();
-                        }
+                        
                     }
                 });
             });
