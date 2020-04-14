@@ -16,7 +16,7 @@
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
-                
+                setActiveMenu('home');
             });
         </script>
     </head>
@@ -31,21 +31,29 @@
         
         <!-- START - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
         <div id="top-bar" class="top-bar">
-                <span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px"> Si Donar</span>
-                <p class="far fa-bell notification-bell"></p>
+            <span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px"> Si Donar</span>
+            <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;">
         </div>
         <div id="bottom-bar" class="bottom-bar">
            <center>
                 <table>
                     <tr>
-                        <td class="menu active"><a href="home.html"><i class="fas fa-home"></i></a></td>
-                        <td class="menu"><a href="search.html"><i class="fas fa-tint"></i></a></td>
-                        <td class="menu"><a href="profile.html"><i class="far fa-user-circle"></i></a></td>
-                    </tr>
-                    <tr>
-                        <td class="menu">Beranda</td>
-                        <td class="menu">Cari Darah</td>
-                        <td class="menu">Profil</td>
+                        <td class="menu"><a onclick="navigate('home')">
+                            <img id="home" alt="home" class="img-responsive" style="height:28px;">
+                            <br/>Beranda
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('stock')">
+                            <img id="stok_darah" alt="stok darah" class="img-responsive" style="height:28px;">
+                            <br/>Stok Darah
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('search')">
+                            <img id="cari_darah" alt="cari darah" class="img-responsive" style="height:28px;">
+                            <br/>Cari Darah
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('profile')">
+                            <img id="profile" alt="profil pengguna" class="img-responsive">
+                            <br/>Profil
+                        </a></td>
                     </tr>
                 </table>
             </center>
