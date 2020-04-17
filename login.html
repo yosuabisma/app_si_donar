@@ -21,7 +21,10 @@
                     var email = $("#email").val();
                     var pwd = $("#pwd").val();
                     for (var i = 0; i < emailArray.length; i++) {
-                        if(email != emailArray[i] || pwd != passwordArray[i]) {
+                        if(email != emailArray[i]) {
+                            $("#login-failed").slideDown();
+                        }
+                        if(pwd != passwordArray[i]) {
                             $("#login-failed").slideDown();
                         }
                         if (email == emailArray[i] && pwd == passwordArray[i]) {
@@ -35,7 +38,7 @@
             });
         </script>
     </head>
-    <body style="background-color:#f7f7f7;">
+    <body style="background-color:#ffffff;">
         <div class="alert alert-danger" id="login-failed" style="text-align:center;position: fixed;width: 100%;top:0;margin: 0;">
             <strong>Gagal Masuk!</strong> Email atau Password salah
         </div>
@@ -44,16 +47,23 @@
             style="height:150px;width:150px">
             <h2 style="font-weight: bold; margin-top:-20px; letter-spacing: 1px">Si Donar</h2>
             <div class="form-section" style="margin-top: 40px;">
-                <div class="container" style="padding-bottom: 30px; text-align: left; width: 300px;">
-                    <h6><b>Email</b></h6>
+                <div style="padding-bottom: 30px; text-align: left;">
+                    <h6>Email</h6>
                     <input type="email" class="form-control" placeholder="Masukkan Email" id="email">
                     <br/>
-                    <h6><b>Password</b></h6>
+                    <h6>Password</h6>
                     <input type="password" class="form-control" placeholder="Masukkan Password" id="pwd">
                 </div>
-                <button type="button" id="login-button" class="btn btn-danger" style="width: 250px; padding: 8px; border-radius: 8px">
+                <button type="button" id="login-button" class="btn btn-danger" style="width: 320px; height: 38px; padding: 6px; border-radius: 8px; background-color: #d9534f;">
                     Masuk
                 </button>
+                <br/><br/>
+                <h6>Belum punya akun?</h6>
+                <a href="register.html">
+                    <button type="button" class="btn btn-outline-danger" style="width: 320px; height: 38px; padding: 6px; border-radius: 8px; border:1px solid #d9534f;">
+                        Daftar
+                    </button>
+                </a>
             </div>
         </div>
     </body>
