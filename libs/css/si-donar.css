@@ -22,7 +22,7 @@
     }
 
 .bottom-bar{
-    width: 100%; 
+    width: 101%; 
     height: 89px; 
     background-color:#ffffff;
     bottom: 0; 
@@ -34,7 +34,7 @@
 }
 
 .top-bar{
-    width: 100%; 
+    width: 101%; 
     height: 65px; 
     background-color:#ffffff;
     top: 0; 
