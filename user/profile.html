@@ -24,7 +24,11 @@
                 var username = getUsername();
                 var email = getEmail();
                 var profile = getProfile(email);
-                console.log(OpenLocationCode.decode("6P58QRGV+96").latitudeCenter)
+                $("#gol_darah").append(profile[1]);
+                $("#rhesus").append(profile[2]);
+                $("#alamat").append(profile[5]);
+                $("#no_telp").append(profile[8]);
+                $("#no_telp_darurat").append(profile[9]);
                 $("#username").append(username);
                 $("#email").append(profile[0])
                 $("#logout-button").click(function(){
@@ -32,7 +36,6 @@
                    window.location.href="../index.html";
                 });
                 $("#lengkapi-button").click(function(){
-                   // logoutApp();
                    window.location.href="./profile-edit.html";
                 });
             });
@@ -51,7 +54,32 @@
                 <div class="judul-profile">
                     Golongan Darah & Rhesus
                 </div>
-                <div id="email" class="isi-profile"></div>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="option-blood-type activeBloodType" id="gol_darah"></div>
+                    </div>
+                    <div class="col">
+                        <div class="option-rhesus-type" style="margin-top: 12px;" id="rhesus"></div>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-bottom: 16px">
+                <div class="judul-profile">
+                    Alamat
+                </div>
+                <div id="alamat" class="isi-profile"></div>
+            </div>
+            <div style="margin-bottom: 16px">
+                <div class="judul-profile">
+                    No Telepon
+                </div>
+                <div id="no_telp" class="isi-profile"></div>
+            </div>
+            <div style="margin-bottom: 16px">
+                <div class="judul-profile">
+                    No Telepon Darurat
+                </div>
+                <div id="no_telp_darurat" class="isi-profile"></div>
             </div>
 
             <div class="row justify-content-center" style="margin-bottom: 16px">
