@@ -1,0 +1,321 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App Si Donar</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/openlocationcode/1.0.3/openlocationcode.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/openlocationcode/1.0.3/openlocationcode.min.js"></script>
+        <!-- START - include this css-->
+        <link rel="stylesheet" href="../libs/css/si-donar.css">
+        <link rel="stylesheet" href="../libs/css/faskes.css">
+        <link href="../libs/css/font-awesome/css/all.css" rel="stylesheet"> 
+        <!-- END - include this css-->
+        <!-- START - include this script to access local storage function etc-->
+        <script src="../libs/js/si-donar.js"></script>
+        <script src="../libs/js/faskes.js"></script>
+        <!-- END - include this script to access local storage function etc-->
+        <script>
+            $(document).ready(function(){
+                setActiveMenu('profile');
+                var username = getUsername();
+                var email = getEmail();
+                // var 
+                $("#lengkapi-button").click(function(){
+                   window.location.href="./profile-edit.html";
+                });
+                $("#muat-button").click(function(){
+                    $("#muat").append(`<div class="row">
+                        <div class="col-8">
+                            <div style="font-size: 14px; margin-bottom: 4px">
+                                PMI PUSAT
+                            </div>
+                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Pasming
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    2 km dari anda
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                                <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                            </div>
+                            <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                        </div>
+                    </div>
+                    <div>
+                        <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div style="font-size: 14px; margin-bottom: 4px">
+                                PMI PUSAT
+                            </div>
+                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Pasming
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    2 km dari anda
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                                <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                            </div>
+                            <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                        </div>
+                    </div>
+                    <div>
+                        <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+                    </div>
+                    <div class="row">
+                        <div class="col-8">
+                            <div style="font-size: 14px; margin-bottom: 4px">
+                                PMI PUSAT
+                            </div>
+                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Pasming
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    2 km dari anda
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="row">
+                                <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                                <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                            </div>
+                            <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                        </div>
+                    </div>
+                    <div>
+                        <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+                    </div>`);
+                    document.getElementById("muat-button").style.visibility = "hidden";
+                });
+            });
+        </script>
+    </head>
+    <body style="background-color:#ffffff;">
+        <div class="container" style="margin-top: 70px; overflow: scroll;">
+            <h4 id="username"><b></b></h4>
+            <h4 style="margin-bottom: 20px; font-weight: bold;">
+                <div class="judul-profile">
+                    Daftar Faskes
+                </div>
+            </h4>
+
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        PMI PUSAT
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Pasming
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            2 km dari anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        PMI PUSAT
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Pasming
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            2 km dari anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        PMI PUSAT
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Pasming
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            2 km dari anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        PMI PUSAT
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Pasming
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            2 km dari anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        PMI PUSAT
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Pasming
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            2 km dari anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+            <div id="muat"></div>
+
+            <div class="row justify-content-center" style="margin-top: 32px; margin-bottom: 120px">
+                <div class="col-12">
+                    <center>
+                        <button type="button" id="muat-button" class="btn btn-danger" style="width: 50%; border-radius: 4px;">
+                            Load More
+                        </button>
+                    </center>
+                </div>
+            </div>
+        </div>
+        
+        <!-- START - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+        <div id="top-bar" class="top-bar">
+            <span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px">Si Donar</span>
+            <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;">
+        </div>
+        <div id="bottom-bar" class="bottom-bar">
+            <center>
+                <table>
+                    <tr>
+                        <td class="menu"><a onclick="navigate('home')">
+                            <img id="home" alt="home" class="img-responsive" style="height:28px;">
+                            <br/>Beranda
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('stock')">
+                            <img id="stok_darah" alt="stok darah" class="img-responsive" style="height:28px;">
+                            <br/>Stok Darah
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('search')">
+                            <img id="cari_darah" alt="cari darah" class="img-responsive" style="height:28px;">
+                            <br/>Cari Darah
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('profile')">
+                            <img id="profile" alt="profil pengguna" class="img-responsive">
+                            <br/>Profil
+                        </a></td>
+                    </tr>
+                </table>        
+            </center>
+        </div>
+        <!-- END - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+    </body>
+</html>

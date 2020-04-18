@@ -1,0 +1,23 @@
+.direction-button {
+    color:#000000;
+    border: 1px solid #1478C7;
+    width: 43px;
+    height: 43px;
+    text-align: center;
+    /*font-size: 24px;*/
+    /*font-weight: bold;*/
+    border-radius: 100%; 
+    background-color: #1478C7;
+}
+
+.call-button {
+    color:#000000;
+    border: 1px solid #5CB85C;
+    width: 43px;
+    height: 43px;
+    text-align: center;
+    /*font-size: 24px;*/
+    /*font-weight: bold;*/
+    border-radius: 100%; 
+    background-color: #5CB85C;
+}
