@@ -46,7 +46,7 @@ function navigate(html){
 
 function setActiveMenu(menu){
     var profileKey = getKey();
-    var menuArray = ["home", "stok_darah", "cari_darah"];
+    var menuArray = ["home", "aktivitas", "cari_darah"];
     
     if(menu !== 'profile'){
         document.getElementById("profile").src = '../src/img/profile_photo_default/'+profileKey+'.jpg';
