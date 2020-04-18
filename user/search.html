@@ -17,6 +17,13 @@
         <script>
             $(document).ready(function(){
                 setActiveMenu('cari_darah');
+                var cariDarahArr = JSON.parse(localStorage.getItem("cari_darah"));
+                if(cariDarahArr){
+                    //  cariDarahArr[0];
+                    // document.getElementsByClassName('activeRhesusType')[0].innerText = cariDarahArr[1];
+                    document.getElementById('deskripsi').value = cariDarahArr[2];
+                }
+
                 var alamatSelected = localStorage.getItem("selected-cari-darah-location");
                 if(alamatSelected){
                     document.getElementById('selected-loc').innerText = alamatSelected;
@@ -141,7 +148,7 @@
             </div>
             <br/>
             <div style="text-align: center">
-                <a href="daftar_stok.html">
+                <a href="search_result.html">
                     <button type="button" id="cari-button" class="btn btn-danger" style="width: 280px; height: 38px; padding: 6px; border-radius: 4px; background-color: #d9534f; margin-top: 16px">
                         Cari
                     </button>

@@ -1,0 +1,189 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App Si Donar</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/openlocationcode/1.0.3/openlocationcode.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/openlocationcode/1.0.3/openlocationcode.min.js"></script>
+        <!-- START - include this css-->
+        <link rel="stylesheet" href="../libs/css/si-donar.css">
+        <link rel="stylesheet" href="../libs/css/faskes.css">
+        <!-- <link rel="stylesheet" href="../libs/css/profile.css"> -->
+        <link href="../libs/css/font-awesome/css/all.css" rel="stylesheet"> 
+        <!-- END - include this css-->
+        <!-- START - include this script to access local storage function etc-->
+        <script src="../libs/js/si-donar.js"></script>
+        <script src="../libs/js/daftar_stok.js"></script>
+        <!-- END - include this script to access local storage function etc-->
+        <script>
+            $(document).ready(function(){
+                setActiveMenu('cari_darah');
+                var alamatSelected = localStorage.getItem("selected-cari-darah-location");
+                $(".alamat-pendonor").append(alamatSelected.substring(0, 25)+ "...");
+                var cari_darah = JSON.parse(localStorage.getItem("cari_darah"));
+                if (cari_darah[0] == "AB" && cari_darah[1] == "-") {
+                    document.getElementById("darah_tidak_tersedia").hidden = false;
+                } else {
+                    document.getElementById("darah_tersedia").hidden = false;
+                }
+                $("#gol_darah").append(cari_darah[0]);
+                $("#rhesus").append(cari_darah[1]);
+            });
+        </script>
+    </head>
+    <body style="background-color:#ffffff;">
+        <div class="container" style="margin-top: 62px; overflow-y: scroll; overflow-x: hidden; position: sticky; top: 62px; z-index: 2; background-color: #fff">
+            <div style="margin-bottom: 16px;">
+                <h5 class="judul-profile" style="font-weight: bold; padding-top: 12px">
+                    Darah yang dicari
+                </h5>
+                <div class="row">
+                    <div class="col-3">
+                        <div class="option-blood-type activeBloodType" id="gol_darah"></div>
+                    </div>
+                    <div class="col-3">
+                        <div class="option-rhesus-type activeRhesusType" style="margin-top: 12px;" id="rhesus"></div>
+                    </div>
+                    <div class="col-6">
+                        <a href="search.html"><div class="" style="margin-bottom: 12px; font-size: 12px; text-align: right; position:absolute; bottom:0;" id="ubah_gol_darah">Ubah Golongan Pencarian</div></a>
+                    </div>
+                </div>
+            </div>
+            <hr style="height: 4px; margin-left: -16px; margin-right: -16px; background-color: #A1A6A9">
+        </div>
+        <div class="container" id="darah_tersedia" hidden>
+            <h5 class="judul-profile" style="font-weight: bold; padding-top: 12px; margin-bottom: 32px">
+                Pemilik Darah yang Sesuai
+            </h5>
+            
+            <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="col-3">
+                    <img src="../src/img/pendonor/fico.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                </div>
+                <div class="col-7">
+                    <div style="font-size: 16px; margin-bottom: 4px">
+                        Fiko
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px" class="alamat-pendonor">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="../src/img/icons/chat_icon.png" alt="chat">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="col-3">
+                    <img src="../src/img/pendonor/chelsea.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                </div>
+                <div class="col-7">
+                    <div style="font-size: 16px; margin-bottom: 4px">
+                        Celsi Slan
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px" class="alamat-pendonor">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="../src/img/icons/chat_icon.png" alt="chat">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="col-3">
+                    <img src="../src/img/pendonor/yupi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                </div>
+                <div class="col-7">
+                    <div style="font-size: 16px; margin-bottom: 4px">
+                        Yupi
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px" class="alamat-pendonor">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="../src/img/icons/chat_icon.png" alt="chat">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="col-3">
+                    <img src="../src/img/pendonor/pevita.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                </div>
+                <div class="col-7">
+                    <div style="font-size: 16px; margin-bottom: 4px">
+                        Devita Dearce
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px" class="alamat-pendonor">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="../src/img/icons/chat_icon.png" alt="chat">
+                </div>
+            </div>
+            <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="col-3">
+                    <img src="../src/img/pendonor/sule.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                </div>
+                <div class="col-7">
+                    <div style="font-size: 16px; margin-bottom: 4px">
+                        Zulaiman Zulai
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px" class="alamat-pendonor">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <img src="../src/img/icons/chat_icon.png" alt="chat">
+                </div>
+            </div>
+            <br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+
+        
+        
+        <!-- START - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+        <div id="top-bar" class="top-bar">
+            <i onclick="navigate('search')" class="fa fa-chevron-left" style="color:#373A3C;margin-right: 30px;"></i><span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px"> Si Donar</span>
+            <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;">
+        </div>
+        <div id="bottom-bar" class="bottom-bar">
+           <center>
+                <table>
+                    <tr>
+                        <td class="menu"><a onclick="navigate('home')">
+                            <img id="home" alt="home" class="img-responsive" style="height:28px;">
+                            <br/>Beranda
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('activity')">
+                            <img id="aktivitas" alt="aktivitas" class="img-responsive" style="height:28px;">
+                            <br/>Aktivitas
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('search')">
+                            <img id="cari_darah" alt="cari darah" class="img-responsive" style="height:28px;">
+                            <br/>Cari Darah
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('profile')">
+                            <img id="profile" alt="profil pengguna" class="img-responsive">
+                            <br/>Profil
+                        </a></td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <!-- END - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+    </body>
+</html>
