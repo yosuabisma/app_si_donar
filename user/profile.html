@@ -24,7 +24,13 @@
                 var username = getUsername();
                 var email = getEmail();
                 var profile = getProfile(email);
-
+                var isKTP = getKTP();
+                
+                if(isKTP == 'null'){
+                    $("#foto_ktp_container").hide();
+                }else{
+                    $("#foto_ktp_container").show();
+                }
                 $("#logout-button").click(function(){
                    logoutApp();
                    window.location.href="../index.html";
@@ -38,14 +44,22 @@
 
 
                 document.getElementById("photo-header").style['background-image'] = "url('"+profile[10]+"')";
+                document.getElementById("map").style['background-image'] = "url('../src/img/map.png')";
                 if(profile[5] !== null && profile[8] !== null && profile[9] !== null){
                     $("#lengkapi-button").append('Ubah Profil');
+                    if(profile[6] === null && profile[7] === null){
+                        $("#map").hide();
+                    }
                 }
-
-                if(profile[5] === null || profile[8] === null || profile[9] === null){
+                
+                if(profile[5] === null || profile[8] === null || profile[9] === null || isKTP === false){
+                    if(profile[6] === null && profile[7] === null){
+                        $("#map").hide();
+                    }
+                   
                     $("#lengkapi-button").append('Lengkapi Profil');
                     $("#alamat_container").hide();
-                    $("#no_telp_container").hide()
+                    $("#no_telp_container").hide();
                     $("#no_telp_darurat_container").hide();
                 }
 
@@ -85,23 +99,34 @@
                     </div>
                 </div>
             </div>
-            <div id="alamat_container" style="margin-bottom: 16px">
+            <div id="alamat_container" style="margin-bottom: 30px">
                 <div class="judul-profile">
                     Alamat
                 </div>
                 <div id="alamat" class="isi-profile"></div>
+                <div id="map" style="margin-top: 10px; width:100%; height: 120px;border-radius: 10px;">
+                    <div style="text-align: center;">
+                        <img src="../src/img/icons/location_icon.png" alt="location" class="img-responsive" style="width:30px; margin-top: 20px;">
+                    </div>
+                </div>
             </div>
-            <div id="no_telp_container" style="margin-bottom: 16px">
+            <div id="no_telp_container" style="margin-bottom: 20px;">
                 <div class="judul-profile">
                     No Telepon
                 </div>
                 <div id="no_telp" class="isi-profile"></div>
             </div>
-            <div id="no_telp_darurat_container" style="margin-bottom: 16px">
+            <div id="no_telp_darurat_container" style="margin-bottom: 20px">
                 <div class="judul-profile">
                     No Telepon Darurat
                 </div>
                 <div id="no_telp_darurat" class="isi-profile"></div>
+            </div>
+            <div id="foto_ktp_container" style="margin-bottom: 20px">
+                <div class="judul-profile">
+                    Foto KTP
+                </div>
+                <img src="../src/img/ktp_photo/ktp.png" alt="ktp" class="img-responsive" style="height:200px; margin-top: 20px;">
             </div>
 
             <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 16px">

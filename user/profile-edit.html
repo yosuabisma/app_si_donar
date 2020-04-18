@@ -35,13 +35,15 @@
                     rhesus = document.getElementsByClassName('activeRhesusType')[0].innerText
                     nama = document.getElementById('nama').value
                     email = document.getElementById('email').value
-                    password = document.getElementById('password').value
+                    password = ""
                     alamat = document.getElementById('alamat').value
                     no_telp = document.getElementById('no_telp').value
                     no_telp_darurat = document.getElementById('no_telp_darurat').value
                     lat = 0
                     long = 0
-                    setProfile(email, gol_darah, rhesus, nama, password, alamat, lat, long, no_telp, no_telp_darurat)
+                    path_photo = '../src/img/profile_photo_default/'+getKey()+'.jpg';
+                    setProfile(email, gol_darah, rhesus, nama, password, alamat, lat, long, no_telp, no_telp_darurat, path_photo)
+                    setKTP('isUploaded');
                     window.location.href="./profile.html";
                 });
 
@@ -131,6 +133,12 @@
                 <div style="margin-bottom: 16px">
                     <label class="judul-profile" for="exampleInputEmail1">No Telepon Darurat</label>
                     <input type="number" class="form-control" id="no_telp_darurat" aria-describedby="emailHelp">
+                </div>
+                <div id="foto_ktp_container" style="margin-bottom: 20px">
+                    <div class="judul-profile">
+                        Foto KTP
+                    </div>
+                    <img src="../src/img/ktp_photo/ktp.png" alt="ktp" class="img-responsive" style="height:200px; margin-top: 20px;">
                 </div>
             </form>
             <div class="row justify-content-center" style="margin-bottom: 16px">
