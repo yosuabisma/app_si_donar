@@ -10,6 +10,17 @@ function removeUsername(){
     localStorage.removeItem("name");
 }
 
+function setEmail(email) {
+    return localStorage.setItem("email", email);
+}
+
+function getEmail(){
+    return localStorage.getItem("email");
+}
+
+function removeEmail(){
+    localStorage.removeItem("email");
+}
 
 function setKey(key){
     return localStorage.setItem("key", key);

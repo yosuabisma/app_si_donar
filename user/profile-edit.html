@@ -21,39 +21,59 @@
         <script>
             $(document).ready(function(){
                 setActiveMenu('profile');
-                var username = getUsername();
-                var email = getEmail();
-                var profile = getProfile(email);
-                console.log(OpenLocationCode.decode("6P58QRGV+96").latitudeCenter)
-                $("#username").append(username);
-                $("#email").append(profile[0])
-                $("#logout-button").click(function(){
-                   logoutApp();
-                   window.location.href="../index.html";
-                });
-                $("#lengkapi-button").click(function(){
-                   // logoutApp();
-                   window.location.href="./profile-edit.html";
-                });
+                // var username = getUsername();
+                // var email = getEmail();
+                // var profile = getProfile(email);
+                // console.log(OpenLocationCode.decode("6P58QRGV+96").latitudeCenter)
+                // $("#username").append(username);
+                // $("#email").append(profile[0])
+                // $("#logout-button").click(function(){
+                //    logoutApp();
+                //    window.location.href="../index.html";
+                // });
+                // $("#lengkapi-button").click(function(){
+                //    // logoutApp();
+                //    // window.location.href="../index.html";
+                // });
             });
         </script>
     </head>
     <body style="background-color:#f7f7f7;">
         <div class="container" style="margin-top: 70px;">
             <h4 id="username"><b></b></h4>
-            <div style="margin-bottom: 16px">
-                <div class="judul-profile">
-                    Email
+            <form>
+               <div style="margin-bottom: 16px">
+                    <div class="judul-profile">
+                        Golongan Darah
+                    </div>
+                    <div id="email" class="isi-profile"></div>
                 </div>
-                <div id="email" class="isi-profile"></div>
-            </div>
-            <div style="margin-bottom: 16px">
-                <div class="judul-profile">
-                    Golongan Darah & Rhesus
+                <div style="margin-bottom: 16px">
+                    <label class="judul-profile" for="exampleInputEmail1">Nama</label>
+                    <input type="text" class="form-control" id="nama" aria-describedby="emailHelp">
+                </div> 
+                <div style="margin-bottom: 16px">
+                    <label class="judul-profile" for="exampleInputEmail1">Email</label>
+                    <input type="email" class="form-control" id="email" aria-describedby="emailHelp">
+                </div> 
+                <div style="margin-bottom: 16px">
+                    <label class="judul-profile" for="exampleInputEmail1">Password</label>
+                    <input type="password" class="form-control" id="password" aria-describedby="emailHelp">
                 </div>
-                <div id="email" class="isi-profile"></div>
-            </div>
-
+                <div style="margin-bottom: 16px">
+                    <label style="float: left" class="judul-profile" for="exampleInputEmail1">Alamat</label>
+                    <label style="float: right" class="judul-profile" for="exampleInputEmail1"><a>Maps</a></label>
+                    <textarea class="form-control" id="alamat" rows="3"></textarea>
+                </div>
+                <div style="margin-bottom: 16px">
+                    <label class="judul-profile" for="exampleInputEmail1">No Telepon</label>
+                    <input type="number" class="form-control" id="no_telp" aria-describedby="emailHelp">
+                </div>
+                <div style="margin-bottom: 16px">
+                    <label class="judul-profile" for="exampleInputEmail1">No Telepon Darurat</label>
+                    <input type="number" class="form-control" id="no_telp_darurat" aria-describedby="emailHelp">
+                </div>
+            </form>
             <div class="row justify-content-center" style="margin-bottom: 16px">
                 <div class="col-12">
                     <button type="button" id="lengkapi-button" class="btn btn-outline-danger" style="width: 100%; border-radius: 4px;">
