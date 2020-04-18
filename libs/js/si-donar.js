@@ -1,3 +1,11 @@
+function setKTP(isKTP){
+    return localStorage.setItem("ktp", isKTP);
+}
+
+function getKTP(){
+    return localStorage.getItem("ktp");
+}
+
 function setUsername(username){
     return localStorage.setItem("name", username);
 }
@@ -36,8 +44,9 @@ function removeKey(){
 
 
 function logoutApp(){
-    removeUsername();
-    removeKey();
+    localStorage.clear();
+    // removeUsername();
+    // removeKey();
 }
 
 function navigate(html){
