@@ -9,13 +9,43 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
         <!-- START - include this script to access local storage function etc-->
         <script src="libs/js/si-donar.js"></script>
+        <script src="libs/js/profile.js"></script>
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
-                var emailArray = ["user@email.com", "yosua@email.com", "william@email.com", "fahmi@email.com", "marcel@email.com", "intan@email.com"];
-                var passwordArray = ["user", "yosua", "william", "fahmi", "marcel", "intan"];
-                var keyArray = ["user", "yosua", "william", "fahmi", "marcel", "intan"];
-                var nameArray = ["Pengguna", "Yosua Bisma", "William Adjandra", "Fahmi Alaydrus", "Marcellino", "Intania Cahya"]
+                var emailArray = ["yosua@email.com", "william@email.com", "fahmi@email.com", "marcel@email.com", "intan@email.com"];
+                var passwordArray = ["yosua", "william", "fahmi", "marcel", "intan"];
+                var keyArray = ["yosua", "william", "fahmi", "marcel", "intan"];
+                var nameArray = ["Yosua Bisma", "William Adjandra", "Fahmi Alaydrus", "Marcellino", "Intania Cahya"]
+                var bloodTypeArray = ["A", "AB", "B", "O", "O"];
+                var rhesusTypeArray = ["+", "+", "+", "-", "-"];
+                var addressArray = ["Jl. Aku Anak Sehat No.8, Jakarta Selatan, DKI Jakarta", 
+                                    "Jl. Topi Saya Bundar No.8, Jakarta Selatan, DKI Jakarta", 
+                                    "Jl. Desaku yang Kucinta No.8, Jakarta Selatan, DKI Jakarta", 
+                                    null, 
+                                    null];
+                var latArray = ["-6.1941896", 
+                                "-6.1941896", 
+                                "-6.1941896", 
+                                null, 
+                                null];
+                var longArray = ["106.8462686", 
+                                "106.8462686", 
+                                "106.8462686", 
+                                null, 
+                                null];
+                var phoneArray = ["08123456789", 
+                                "08123456789", 
+                                "08123456789", 
+                                null, 
+                                null];
+
+                var emergencyPhoneArray = ["08987654321", 
+                                "08987654321", 
+                                "08987654321", 
+                                null, 
+                                null];
+                
                 $("#login-failed").hide();
                 $("#login-button").click(function(){
                     var email = $("#email").val();
@@ -28,10 +58,36 @@
                             $("#login-failed").slideDown();
                         }
                         if (email == emailArray[i] && pwd == passwordArray[i]) {
-                            window.location.href="user/home.html";
                             setEmail(emailArray[i])
                             setUsername(nameArray[i]);
                             setKey(keyArray[i]);
+                            var setEmailValue = emailArray[i];
+                            var golongan_darah =  bloodTypeArray[i];
+                            var rhesus = rhesusTypeArray[i];
+                            var nama = nameArray[i];
+                            var password = passwordArray[i];
+                            var alamat = addressArray[i];
+                            var lat = latArray[i];
+                            var long = longArray[i];
+                            var no_telp = phoneArray[i];
+                            var no_telp_darurat = emergencyPhoneArray[i];
+                            var path_foto = '../src/img/profile_photo_default/'+keyArray[i]+'.jpg';
+                            console.log(golongan_darah);
+                            setProfile(
+                                setEmailValue, 
+                                golongan_darah, 
+                                rhesus, 
+                                nama, 
+                                password, 
+                                alamat, 
+                                lat, 
+                                long, 
+                                no_telp, 
+                                no_telp_darurat, 
+                                path_foto
+                            );
+                            window.location.href="user/home.html";
+
                         }
                         
                     }
@@ -48,14 +104,14 @@
             style="height:150px;width:150px">
             <h2 style="font-weight: bold; margin-top:-20px; letter-spacing: 1px">Si Donar</h2>
             <div class="form-section" style="margin-top: 40px;">
-                <div class="container" style="padding-bottom: 30px; text-align: left; margin-left: 10px">
+                <div class="container" style="margin:auto; padding-bottom: 30px;text-align: left;">
                     <h6>Email</h6>
-                    <input type="email" style="width:300px;"  class="form-control" placeholder="Masukkan Email" id="email">
+                    <input type="email" class="form-control" placeholder="Masukkan Email" id="email">
                     <br/>
                     <h6>Password</h6>
-                    <input type="password" style="width:300px;"  class="form-control" placeholder="Masukkan Password" id="pwd">
+                    <input type="password" class="form-control" placeholder="Masukkan Password" id="pwd">
                 </div>
-                <div style="text-align: center">
+                <div style="text-align: center;margin : auto">
                     <button type="button" id="login-button" class="btn btn-danger" style="width: 280px; height: 38px; padding: 6px; border-radius: 8px; background-color: #d9534f;">
                         Masuk
                     </button>

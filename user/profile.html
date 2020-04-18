@@ -24,6 +24,7 @@
                 var username = getUsername();
                 var email = getEmail();
                 var profile = getProfile(email);
+
                 $("#logout-button").click(function(){
                    logoutApp();
                    window.location.href="../index.html";
@@ -31,7 +32,22 @@
                 $("#lengkapi-button").click(function(){
                    window.location.href="./profile-edit.html";
                 });
+                $("#username").append(username);
+                $("#email").append(email);
 
+
+
+                document.getElementById("photo-header").style['background-image'] = "url('"+profile[10]+"')";
+                if(profile[5] !== null && profile[8] !== null && profile[9] !== null){
+                    $("#lengkapi-button").append('Ubah Profil');
+                }
+
+                if(profile[5] === null || profile[8] === null || profile[9] === null){
+                    $("#lengkapi-button").append('Lengkapi Profil');
+                    $("#alamat_container").hide();
+                    $("#no_telp_container").hide()
+                    $("#no_telp_darurat_container").hide();
+                }
 
                 // Set profile (Belom ada if kalo belom ada profile gapapa lah ya)
                 $("#gol_darah").append(profile[1]);
@@ -39,15 +55,18 @@
                 $("#alamat").append(profile[5]);
                 $("#no_telp").append(profile[8]);
                 $("#no_telp_darurat").append(profile[9]);
-                $("#username").append(username);
-                $("#email").append(profile[0])
+               
             });
         </script>
     </head>
     <body style="background-color:#ffffff;">
-        <div class="container" style="margin-top: 70px;">
-            <h4 id="username"><b></b></h4>
-            <div style="margin-bottom: 16px">
+        <div id="photo-header" style="height:200px;margin-top:60px;background-size: cover;overflow-x: unset; padding-top: 152px;">
+            <div style="background-color: black; padding: 6px;background: rgba(0,0,0,0.7)">
+                 <h4 id="username" style="color:#ffffff; margin-left: 4px;"><b></b></h4>
+            </div>
+         </div>
+        <div class="container" style="">
+            <div style="margin-bottom: 16px; margin-top: 30px;">
                 <div class="judul-profile">
                     Email
                 </div>
@@ -66,33 +85,32 @@
                     </div>
                 </div>
             </div>
-            <div style="margin-bottom: 16px">
+            <div id="alamat_container" style="margin-bottom: 16px">
                 <div class="judul-profile">
                     Alamat
                 </div>
                 <div id="alamat" class="isi-profile"></div>
             </div>
-            <div style="margin-bottom: 16px">
+            <div id="no_telp_container" style="margin-bottom: 16px">
                 <div class="judul-profile">
                     No Telepon
                 </div>
                 <div id="no_telp" class="isi-profile"></div>
             </div>
-            <div style="margin-bottom: 16px">
+            <div id="no_telp_darurat_container" style="margin-bottom: 16px">
                 <div class="judul-profile">
                     No Telepon Darurat
                 </div>
                 <div id="no_telp_darurat" class="isi-profile"></div>
             </div>
 
-            <div class="row justify-content-center" style="margin-bottom: 16px">
+            <div class="row justify-content-center" style="margin-top: 50px; margin-bottom: 16px">
                 <div class="col-12">
                     <button type="button" id="lengkapi-button" class="btn btn-outline-danger" style="width: 100%; border-radius: 4px;">
-                        Ubah Profil
                     </button>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row justify-content-center" style="margin-bottom: 150px">
                 <div class="col-12">
                     <button type="button" id="logout-button" class="btn btn-outline-dark" style="width: 100%; border-radius: 4px;">
                         Keluar
