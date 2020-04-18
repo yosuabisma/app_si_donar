@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App Si Donar</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="libs/css/si-donar.css">
+        <!-- START - include this script to access local storage function etc-->
+        <script src="libs/js/si-donar.js"></script>
+        <!-- END - include this script to access local storage function etc-->
+        <script>
+            $(document).ready(function(){
+                $('.verification-info').hide();
+                setTimeout(function(){ 
+                    $('.loading').hide();
+                    $('.verification-info').show();
+                }, 2000);
+
+                setTimeout(function(){ 
+                    $('#myModal').modal('show');
+                }, 6000);
+            });
+        </script>
+        <style>
+            .loading{
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body style="background-color:#ffffff;">
+        <div class="loading">
+            <div class="loader"></div>
+            <br/><br/>
+            <h6>Tunggu Sebentar...</h6>
+        </div>
+       
+        <div class="container verification-info" style="text-align: center; margin-top: 62px;padding-left: 30px; padding-right: 30px;">
+            <div class="close-bar" style="float:right; margin-top: -30px; margin-right: 20px;">
+                <a href="login.html">
+                <img src="src/img/icons/close_icon.png" alt="check" class="img-responsive">
+                </a>
+            </div>
+            <img src="src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive"
+            style="height:150px;width:150px">
+            <h2 style="font-weight: bold; margin-top:-20px; letter-spacing: 1px">Si Donar</h2>
+            <br/><br/><br/><br/>
+            <h6>Akun Anda berhasil didaftarkan<br/><br/>Link verifikasi telah dikirim ke email Anda<br/><br/><b>Silakan periksa email Anda</b></h6>
+            <button type="button" id="resend-button" class="btn btn-danger"  data-toggle="modal" data-target="#myModal"
+            style="margin-top: 80px; width: 280px; height: 38px; padding: 6px; border-radius: 8px; background-color: #d9534f;">
+                Kirim Ulang Link Verifikasi
+            </button>
+        </div>
+
+        <div class="open-email">
+          <!-- The Modal -->
+            <div class="modal fade" id="myModal">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                    
+                        <!-- Modal Header -->
+                        <div class="modal-header">
+                        <h4 class="modal-title">Buka Aplikasi E-mail</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                        <p>Untuk melakukan verifikasi registrasi Si Donar izinkan aplikasi Si Donar membuka aplikasi E-mail</p>
+                        </div>
+                        
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <a href="verification-success.html">
+                                <button type="button" class="btn btn-danger">Buka Aplikasi E-mail</button>
+                            </a>
+                        </div>
+                        
+                    </div>
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

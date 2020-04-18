@@ -19,7 +19,8 @@
                     // enable this comment to test clear local storage
                     // removeUsername();
                     if(getUsername() == null){
-                        $("#login-screen").fadeIn(250);
+                        // $("#login-screen").fadeIn(250);
+                        window.location.href="login.html";
                     }else{
                         window.location.href="user/home.html";
                     }
@@ -28,7 +29,7 @@
             });
         </script>
     </head>
-    <body style="background-color:#f7f7f7;">
+    <body style="background-color:#ffffff;">
         <div id="loading-screen">
             <div style="text-align:center;margin-top: 50%">
                 <img src="src/img/logo_si_donar.png" alt="logo_si_donar"
@@ -43,15 +44,17 @@
             <div class="button-section" style="margin-top: 90px;">
                 <h6>Sudah punya akun?</h6>
                 <a href="login.html">
-                    <button type="button" class="btn btn-danger" style="width: 250px; padding: 8px; border-radius: 8px">
+                    <button type="button" class="btn btn-danger" style="width: 320px; height: 38px; padding: 6px; border-radius: 8px; background-color: #d9534f;">
                     Masuk
                     </button>
                 </a>
                 <br/><br/>
                 <h6>Belum punya akun?</h6>
-                <button type="button" class="btn btn-outline-danger" style="width: 250px; padding: 8px; border-radius: 8px">
-                    Daftar
-                </button>
+                <a href="register.html">
+                    <button type="button" class="btn btn-outline-danger" style="width: 320px; height: 38px; padding: 6px; border-radius: 8px; border:1px solid #d9534f;">
+                        Daftar
+                    </button>
+                </a>
             </div>
         </div>
     </body>
