@@ -16,6 +16,7 @@ function setProfile(email, golongan_darah, rhesus, nama, password, alamat, lat, 
 	profile[8] = no_telp;
 	profile[9] = no_telp_darurat;
 	profile[10] = path_foto;
+	console.log(profile);
 	return localStorage.setItem("profile-" + email, JSON.stringify(profile));
 	// profile = JSON.parse(localStorage.getItem("profile" + "-email"));
 	// console.log(profile)
