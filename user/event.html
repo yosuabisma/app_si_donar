@@ -20,7 +20,7 @@
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
-                setActiveMenu('profile');
+                setActiveMenu('home');
                 var username = getUsername();
                 var email = getEmail();
                 // var 
@@ -63,11 +63,7 @@
     <body style="background-color:#ffffff;">
         <div class="container" style="margin-top: 70px; overflow: scroll;">
             <h4 id="username"><b></b></h4>
-            <h4 style="margin-bottom: 20px; font-weight: bold;">
-                <div class="judul-profile">
-                    Daftar Faskes
-                </div>
-            </h4>
+            <h5><b>Daftar Event</b></h5>
 
             <div class="row">
                 <div class="col" style="margin-bottom: 16px">
@@ -85,34 +81,34 @@
                         Donor Darah Serentak 2020
                     </div>
                     <div style="font-size: 12px; margin-bottom: 4px; margin-left: 4px; color:#999999">
-                        24 April 2020
+                        27 April 2020
                     </div>
                 </div>
                 <div class="col" style="margin-bottom: 16px">
                     <img src="../src/img/banner_event.png" alt="notifikasi" class="img-responsive" style="margin-left: -4px;">
                     <div style="font-size: 16px; margin-bottom: 4px; margin-left: 4px">
-                        Donor Darah Serentak 2020
+                        Donor Darah Hari Buruh
                     </div>
                     <div style="font-size: 12px; margin-bottom: 4px; margin-left: 4px; color:#999999">
-                        24 April 2020
+                        1 Mei 2020
                     </div>
                 </div>
                 <div class="col" style="margin-bottom: 16px">
                     <img src="../src/img/banner_event.png" alt="notifikasi" class="img-responsive" style="margin-left: -4px;">
                     <div style="font-size: 16px; margin-bottom: 4px; margin-left: 4px">
-                        Donor Darah Serentak 2020
+                        Donor Darah Hari Pancasila 2020
                     </div>
                     <div style="font-size: 12px; margin-bottom: 4px; margin-left: 4px; color:#999999">
-                        24 April 2020
+                        1 Juni 2020
                     </div>
                 </div>
                 <div class="col" style="margin-bottom: 16px">
                     <img src="../src/img/banner_event.png" alt="notifikasi" class="img-responsive" style="margin-left: -4px;">
                     <div style="font-size: 16px; margin-bottom: 4px; margin-left: 4px">
-                        Donor Darah Serentak 2020
+                        Donor Darah Hari Kemerdekaan RI ke 75
                     </div>
                     <div style="font-size: 12px; margin-bottom: 4px; margin-left: 4px; color:#999999">
-                        24 April 2020
+                        17 Agustus 2020
                     </div>
                 </div>
                 <div id="muat"></div>
@@ -131,7 +127,7 @@
         
         <!-- START - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
         <div id="top-bar" class="top-bar">
-            <span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px">Si Donar</span>
+            <i onclick="navigate('home')" class="fa fa-chevron-left" style="color:#373A3C;margin-right: 30px;"></i><span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px"> Si Donar</span>
             <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;">
         </div>
         <div id="bottom-bar" class="bottom-bar">
@@ -142,9 +138,9 @@
                             <img id="home" alt="home" class="img-responsive" style="height:28px;">
                             <br/>Beranda
                         </a></td>
-                        <td class="menu"><a onclick="navigate('stock')">
-                            <img id="stok_darah" alt="stok darah" class="img-responsive" style="height:28px;">
-                            <br/>Stok Darah
+                        <td class="menu"><a onclick="navigate('activity')">
+                            <img id="aktivitas" alt="aktivitas" class="img-responsive" style="height:28px;">
+                            <br/>Aktivitas
                         </a></td>
                         <td class="menu"><a onclick="navigate('search')">
                             <img id="cari_darah" alt="cari darah" class="img-responsive" style="height:28px;">

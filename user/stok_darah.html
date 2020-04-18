@@ -16,6 +16,7 @@
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
+                setActiveMenu('home');
                 activeSelectOption("input-blood", "option-blood-type", "activeBloodType");
                 activeSelectOption("input-rhesus", "option-rhesus-type", "activeRhesusType");
                 $("#cari-button").click(function(){
@@ -28,12 +29,8 @@
         </script>
     </head>
     <body style="background-color:#ffffff;">
-        <div style="text-align: center;margin-top: 40px;">
-            <h4 style="margin-bottom: 20px; font-weight: bold;">
-                <div class="judul-profile">
-                    Daftar Faskes
-                </div>
-            </h4>
+        <div class="container" style="text-align: left;margin-top: 100px;">
+            <h5><b>Pilih Darah yang Dicari</b></h5>
         </div>
         <div id="register-screen" class="container" style="margin-top: 25px">
             <div id="input-blood-type" style="margin-left: 10px;">
@@ -86,5 +83,35 @@
             </div>
             
         </div>
+        <!-- START - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+        <div id="top-bar" class="top-bar">
+            <i onclick="navigate('home')" class="fa fa-chevron-left" style="color:#373A3C;margin-right: 30px;"></i><span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px"> Si Donar</span>
+            <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;">
+        </div>
+        <div id="bottom-bar" class="bottom-bar">
+           <center>
+                <table>
+                    <tr>
+                        <td class="menu"><a onclick="navigate('home')">
+                            <img id="home" alt="home" class="img-responsive" style="height:28px;">
+                            <br/>Beranda
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('activity')">
+                            <img id="aktivitas" alt="aktivitas" class="img-responsive" style="height:28px;">
+                            <br/>Aktivitas
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('search')">
+                            <img id="cari_darah" alt="cari darah" class="img-responsive" style="height:28px;">
+                            <br/>Cari Darah
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('profile')">
+                            <img id="profile" alt="profil pengguna" class="img-responsive">
+                            <br/>Profil
+                        </a></td>
+                    </tr>
+                </table>
+            </center>
+        </div>
+        <!-- END - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
     </body>
 </html>
