@@ -26,13 +26,7 @@
                 var profile = getProfile(email);
                 activeSelectOption("input-blood", "option-blood-type", "activeBloodType");
                 activeSelectOption("input-rhesus", "option-rhesus-type", "activeRhesusType");
-                setActiveSelectOption("input-blood", "option-blood-type", "activeBloodType", profile[1]);
-                setActiveSelectOption("input-rhesus", "option-rhesus-type", "activeRhesusType", profile[2]);
-                document.getElementById('nama').value = username
-                document.getElementById('email').value = profile[0]
-                document.getElementById('alamat').value = profile[5]
-                document.getElementById('no_telp').value = profile[8]
-                document.getElementById('no_telp_darurat').value = profile[9]
+
                 $("#batal-button").click(function(){
                    window.location.href="./profile.html";
                 });
@@ -50,6 +44,16 @@
                     setProfile(email, gol_darah, rhesus, nama, password, alamat, lat, long, no_telp, no_telp_darurat)
                     window.location.href="./profile.html";
                 });
+
+                // Set profile
+                setActiveSelectOption("input-blood", "option-blood-type", "activeBloodType", profile[1]);
+                setActiveSelectOption("input-rhesus", "option-rhesus-type", "activeRhesusType", profile[2]);
+                document.getElementById('nama').value = username
+                document.getElementById('email').value = profile[0]
+                document.getElementById('alamat').value = profile[5]
+                document.getElementById('no_telp').value = profile[8]
+                document.getElementById('no_telp_darurat').value = profile[9]
+                
             });
         </script>
     </head>

@@ -24,13 +24,6 @@
                 var username = getUsername();
                 var email = getEmail();
                 var profile = getProfile(email);
-                $("#gol_darah").append(profile[1]);
-                $("#rhesus").append(profile[2]);
-                $("#alamat").append(profile[5]);
-                $("#no_telp").append(profile[8]);
-                $("#no_telp_darurat").append(profile[9]);
-                $("#username").append(username);
-                $("#email").append(profile[0])
                 $("#logout-button").click(function(){
                    logoutApp();
                    window.location.href="../index.html";
@@ -38,6 +31,16 @@
                 $("#lengkapi-button").click(function(){
                    window.location.href="./profile-edit.html";
                 });
+
+
+                // Set profile (Belom ada if kalo belom ada profile gapapa lah ya)
+                $("#gol_darah").append(profile[1]);
+                $("#rhesus").append(profile[2]);
+                $("#alamat").append(profile[5]);
+                $("#no_telp").append(profile[8]);
+                $("#no_telp_darurat").append(profile[9]);
+                $("#username").append(username);
+                $("#email").append(profile[0])
             });
         </script>
     </head>
