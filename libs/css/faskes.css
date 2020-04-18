@@ -21,3 +21,9 @@
     border-radius: 100%; 
     background-color: #5CB85C;
 }
+
+.form-control:focus{
+    outline: none;
+    box-shadow: none;
+    border-color: #ced4da;
+}
