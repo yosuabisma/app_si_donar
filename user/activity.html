@@ -36,6 +36,17 @@
                 var profile = getProfile(email);
 
                 $('.blood-rhesus').append(profile[1]+profile[2]);
+
+
+                $(".activity-row").click(function(){
+                    localStorage.setItem("activity-name", $(this).find('.activity-name').val());
+                    localStorage.setItem("activity-img", $(this).find('.activity-img').val());
+                    localStorage.setItem("activity-loc", $(this).find('.activity-loc').val());
+                    localStorage.setItem("activity-desc", $(this).find('.activity-desc').val());
+                    localStorage.setItem("activity-blood", profile[1]);
+                    localStorage.setItem("activity-rhesus", profile[2]);
+                    window.location.href= 'activity-detail.html';
+                });
             });
         </script>
         <style>
@@ -56,13 +67,137 @@
             
 
            <div class="row">
-                <div id="content-resipien" style="margin-top: 150px;">
-                
+                <div id="content-resipien" class="container" style="margin-top: 150px;">
+
+                    <div class="row activity-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <input type="hidden" class="activity-name" value="Meri Jen">
+                        <input type="hidden" class="activity-img" value="../src/img/need_blood/operasi.jpg">
+                        <input type="hidden" class="activity-loc" value="Pasar Minggu, Jakarta Selatan">
+                        <input type="hidden" class="activity-desc" value="Jatoh dari Pohon Toge">
+                        
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-001
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Meri Jen
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Pasar Minggu, Jakarta Selatan
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Jatoh dari Pohon Toge
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row activity-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <input type="hidden" class="activity-name" value="Piter Parker">
+                        <input type="hidden" class="activity-img" value="../src/img/need_blood/operasi.jpg">
+                        <input type="hidden" class="activity-loc" value="Pasar Minggu, Jakarta Selatan">
+                        <input type="hidden" class="activity-desc" value="Kena Silet">
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-002
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Piter Parker
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Pasar Minggu, Jakarta Selatan
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Kena Silet
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row activity-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <input type="hidden" class="activity-name" value="Skubidubidu">
+                        <input type="hidden" class="activity-img" value="../src/img/need_blood/operasi.jpg">
+                        <input type="hidden" class="activity-loc" value="Kebon Jeruk, Jakarta Barat">
+                        <input type="hidden" class="activity-desc" value="Operasi">
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-003
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Skubidubidu
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Kebon Jeruk, Jakarta Barat
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Operasi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
                 
                 </div>
                 <div id="content-pendonor" class="container" style="margin-top: 150px;">
                     
-                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                    <div class="row activity-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <input type="hidden" class="activity-name" value="Wow Wiw">
+                        <input type="hidden" class="activity-img" value="../src/img/need_blood/operasi.jpg">
+                        <input type="hidden" class="activity-loc" value="Kedoya, Jakarta Barat">
+                        <input type="hidden" class="activity-desc" value="Operasi">
                         <div class="col-3">
                             <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
                         </div>
@@ -98,7 +233,11 @@
                         </div>
                     </div>
 
-                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                    <div class="row activity-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <input type="hidden" class="activity-name" value="Buzz Lightyear">
+                        <input type="hidden" class="activity-img" value="../src/img/need_blood/operasi.jpg">
+                        <input type="hidden" class="activity-loc" value="Kebon Jeruk, Jakarta Barat">
+                        <input type="hidden" class="activity-desc" value="Operasi">
                         <div class="col-3">
                             <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
                         </div>
@@ -134,7 +273,11 @@
                         </div>
                     </div>
 
-                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                    <div class="row activity-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <input type="hidden" class="activity-name" value="Lightning McQueen">
+                        <input type="hidden" class="activity-img" value="../src/img/need_blood/operasi.jpg">
+                        <input type="hidden" class="activity-loc" value=" Lenteng Agung, Jakarta Selatan">
+                        <input type="hidden" class="activity-desc" value="Operasi">
                         <div class="col-3">
                             <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
                         </div>
@@ -169,115 +312,6 @@
                             </div>
                         </div>
                     </div>
-
-                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
-                        <div class="col-3">
-                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
-                        </div>
-                        <div class="col-7">
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <div style="font-size: 16px; margin-bottom: 4px">
-                                    #DNR-SJ-JKT-004
-                                </div>
-                            </div>
-                            
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Lala Po
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Lenteng Agung, Jakarta Selatan
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Operasi
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
-                        <div class="col-3">
-                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
-                        </div>
-                        <div class="col-7">
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <div style="font-size: 16px; margin-bottom: 4px">
-                                    #DNR-SJ-JKT-005
-                                </div>
-                            </div>
-                            
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Woody
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Pasar Minggu, Jakarta Selatan
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Operasi
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
-                        <div class="col-3">
-                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
-                        </div>
-                        <div class="col-7">
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <div style="font-size: 16px; margin-bottom: 4px">
-                                    #DNR-SJ-JKT-006
-                                </div>
-                            </div>
-                            
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Woodpecker
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Salemba, Jakarta Pusat
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Operasi
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-2">
-                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
-                            </div>
-                        </div>
-                    </div>
-                    <br/><br/><br/><br/><br/><br/><br/>
 
 
                 </div>
