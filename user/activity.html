@@ -13,22 +13,293 @@
         <!-- END - include this css-->
         <!-- START - include this script to access local storage function etc-->
         <script src="../libs/js/si-donar.js"></script>
+        <script src="../libs/js/profile.js"></script>
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
                 setActiveMenu('aktivitas');
+                $('#content-pendonor').hide();
+                $('#tab-pendonor').click(function (e) {
+                    $('#tab-pendonor').addClass('activeActivity');
+                    $('#tab-resipien').removeClass('activeActivity');
+                    $('#content-pendonor').show();
+                    $('#content-resipien').hide();
+                });
+                $('#tab-resipien').click(function (e) {
+                    $('#tab-pendonor').removeClass('activeActivity');
+                    $('#tab-resipien').addClass('activeActivity');
+                    $('#content-pendonor').hide();
+                    $('#content-resipien').show();
+                });
+
+                var email = getEmail();
+                var profile = getProfile(email);
+
+                $('.blood-rhesus').append(profile[1]+profile[2]);
             });
         </script>
+        <style>
+            .tab-activity{
+                padding-bottom: 18px;
+                padding-top: 18px;
+                background-color: #ffffff;
+            }
+            .activeActivity{
+                font-weight: bold;
+                border-bottom: 4px solid #D9534F;
+            }
+        </style>
     </head>
     <body style="background-color:#ffffff;">
-        <div class="container" style="margin-top: 70px;">
-           <h6>aktivitas</h6>
+        <div class="container">
+           
+            
+
+           <div class="row">
+                <div id="content-resipien" style="margin-top: 150px;">
+                
+                
+                </div>
+                <div id="content-pendonor" class="container" style="margin-top: 150px;">
+                    
+                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-001
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Wow Wiw
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Kedoya, Jakarta Barat
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Operasi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-002
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Buzz Lightyear
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Kebon Jeruk, Jakarta Barat
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Operasi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-003
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Lightning McQueen
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Lenteng Agung, Jakarta Selatan
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Operasi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-004
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Lala Po
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Lenteng Agung, Jakarta Selatan
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Operasi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-005
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Woody
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Pasar Minggu, Jakarta Selatan
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Operasi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                        <div class="col-3">
+                            <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
+                        </div>
+                        <div class="col-7">
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <div style="font-size: 16px; margin-bottom: 4px">
+                                    #DNR-SJ-JKT-006
+                                </div>
+                            </div>
+                            
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/user_icon.png" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Woodpecker
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Salemba, Jakarta Pusat
+                                </div>
+                            </div>
+                            <div class="row" style="margin-left: 6px;  margin-bottom: 4px">
+                                <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                                <div style="font-size: 12px">
+                                    Operasi
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2">
+                            <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
+                            </div>
+                        </div>
+                    </div>
+                    <br/><br/><br/><br/><br/><br/><br/>
+
+
+                </div>
+           </div>
+           
+          
         </div>
         
+     
+          
+
         <!-- START - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
         <div id="top-bar" class="top-bar">
             <span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px"> Si Donar</span>
             <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;">
+            <div id="tab" style="margin-left:-20px;text-align: center;position: fixed; width:100%; background-color: #ffffff;">
+                <div class="row">
+                    <div id="tab-resipien" class="col-6 tab-activity activeActivity">Resipien</div>
+                    <div id="tab-pendonor" class="col-6 tab-activity">Pendonor</div>
+                </div>
+            </div>
+        
         </div>
         <div id="bottom-bar" class="bottom-bar">
            <center>
