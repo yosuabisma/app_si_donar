@@ -12,11 +12,24 @@
         <link href="../libs/css/font-awesome/css/all.css" rel="stylesheet"> 
         <!-- END - include this css-->
         <!-- START - include this script to access local storage function etc-->
+        <script src="../libs/js/profile.js"></script>
         <script src="../libs/js/si-donar.js"></script>
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
                 setActiveMenu('home');
+                var email = getEmail();
+                var profile = getProfile(email);
+                $('.blood-rhesus').append(profile[1]+profile[2]);
+                $(".need-blood-row").click(function(){
+                    localStorage.setItem("need-blood-name", $(this).find('.need-blood-name').val());
+                    localStorage.setItem("need-blood-img", $(this).find('.need-blood-img').val());
+                    localStorage.setItem("need-blood-loc", $(this).find('.need-blood-loc').val());
+                    localStorage.setItem("need-blood-desc", $(this).find('.need-blood-desc').val());
+                    localStorage.setItem("need-blood-blood", profile[1]);
+                    localStorage.setItem("need-blood-rhesus", profile[2]);
+                    window.location.href= 'butuh-darah.html';
+                });
             });
         </script>
         <style>
@@ -141,7 +154,11 @@
             </div>
             <div id="need_blood_list">
                 <h5><b>Darah Dibutuhkan</b></h5>
-                <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="row need-blood-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                    <input type="hidden"  class="need-blood-name" value="Valentio Rosikin">
+                    <input type="hidden"  class="need-blood-img" value="../src/img/need_blood/rossi.jpeg">
+                    <input type="hidden"  class="need-blood-loc" value="Lenteng Agung, Jakarta Selatan">
+                    <input type="hidden"  class="need-blood-desc" value="Kecelakaan Motor">
                     <div class="col-3">
                         <img src="../src/img/need_blood/rossi.jpeg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
                     </div>
@@ -163,12 +180,15 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <div style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
-                            AB+
+                        <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="row need-blood-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                    <input type="hidden"  class="need-blood-name" value="Mike Teson">
+                    <input type="hidden"  class="need-blood-img" value="../src/img/need_blood/operasi.jpg">
+                    <input type="hidden"  class="need-blood-loc" value="Kedoya, Jakarta Barat">
+                    <input type="hidden"  class="need-blood-desc" value="Operasi">
                     <div class="col-3">
                         <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
                     </div>
@@ -190,12 +210,15 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <div style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
-                            B+
+                        <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="row need-blood-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                    <input type="hidden" class="need-blood-name" value="Tatan Suherman">
+                    <input type="hidden" class="need-blood-img" value="../src/img/need_blood/operasi.jpg">
+                    <input type="hidden" class="need-blood-loc" value="Kebon Jeruk, Jakarta Barat">
+                    <input type="hidden" class="need-blood-desc" value="Kekurangan darah sehabis operasi">
                     <div class="col-3">
                         <img src="../src/img/need_blood/operasi.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
                     </div>
@@ -212,17 +235,20 @@
                         <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                             <img src="../src/img/icons/comment_icon.png" alt="desc" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
                             <div style="font-size: 12px">
-                                Kekurangan darah saat operasi
+                                Kekurangan darah sehabis operasi
                             </div>
                         </div>
                     </div>
                     <div class="col-2">
-                        <div style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
-                            O+
+                        <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="row need-blood-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                    <input type="hidden" class="need-blood-name" value="Ishak Nuton">
+                    <input type="hidden" class="need-blood-img" value="../src/img/need_blood/newton.jpg">
+                    <input type="hidden" class="need-blood-loc" value="Pasar Minggu, Jakarta Selatan">
+                    <input type="hidden" class="need-blood-desc" value="Jatuh dari Pohon Apel">
                     <div class="col-3">
                         <img src="../src/img/need_blood/newton.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
                     </div>
@@ -244,12 +270,15 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <div style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
-                            A+
+                        <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
                         </div>
                     </div>
                 </div>
-                <div class="row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                <div class="row need-blood-row" style="margin-top: 16px; border-bottom: 1px solid #535761; padding-bottom: 8px;">
+                    <input type="hidden" class="need-blood-name" value="Krisno Ronal">
+                    <input type="hidden" class="need-blood-img" value="../src/img/need_blood/ronaldo.jpg">
+                    <input type="hidden" class="need-blood-loc" value="Tanjung Priok, Jakarta Utara">
+                    <input type="hidden" class="need-blood-desc" value="Kebentur Benda Tajam">
                     <div class="col-3">
                         <img src="../src/img/need_blood/ronaldo.jpg" alt="desc" style="height:80px; width: 80px; border-radius: 10px;">
                     </div>
@@ -271,8 +300,7 @@
                         </div>
                     </div>
                     <div class="col-2">
-                        <div style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
-                            O-
+                        <div class="blood-rhesus" style="padding-top: 5px;height:37px; width: 37px; text-align: center; border-radius: 100%;border: 2px solid #D9534F;font-weight: bold;font-size: 14px;">
                         </div>
                     </div>
                 </div>

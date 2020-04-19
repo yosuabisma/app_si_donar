@@ -1,0 +1,148 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>App Si Donar</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/openlocationcode/1.0.3/openlocationcode.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/openlocationcode/1.0.3/openlocationcode.min.js"></script>
+        <!-- START - include this css-->
+        <link rel="stylesheet" href="../libs/css/si-donar.css">
+        <link rel="stylesheet" href="../libs/css/profile.css">
+        <link href="../libs/css/font-awesome/css/all.css" rel="stylesheet"> 
+        <!-- END - include this css-->
+        <!-- START - include this script to access local storage function etc-->
+        <script src="../libs/js/si-donar.js"></script>
+        <script src="../libs/js/profile.js"></script>
+        <!-- END - include this script to access local storage function etc-->
+        <script>
+            $(document).ready(function(){
+                setActiveMenu('aktivitas');
+                
+                $('#donor-resipien-text').hide();
+                var name = localStorage.getItem("need-blood-name");
+                var img = localStorage.getItem("need-blood-img");
+                var loc = localStorage.getItem("need-blood-loc");
+                var desc = localStorage.getItem("need-blood-desc");
+                var blood = localStorage.getItem("need-blood-blood");
+                var rhesus = localStorage.getItem("need-blood-rhesus");
+
+                $('.modal-body').append(`Apakah Anda bersedia menjadi pendonor untuk <span><b>${name}</b></span>?`);
+                document.getElementById("photo-header").style['background-image'] = "url('"+img+"')";
+                $('#butuh-darah-nama').append(name);
+                $('#butuh-darah-lokasi').append(loc);
+                $('#butuh-darah-deskripsi').append(desc);
+                $('.option-blood-type').append(blood);
+                $('.option-rhesus-type').append(rhesus);
+
+                $('#butuh-darah-lokasi').click(function (e) {
+                   localStorage.setItem("selected-butuh-darah-location", loc);
+                   window.location.href="butuh-darah-location.html";
+                });
+
+                $('#ready-donor').click(function (e) {
+                   $('#donor-resipien').hide();
+                   $('#donor-resipien-text').show();
+                });
+
+                $('#chat-resipien').click(function (e) {
+                    localStorage.setItem("chat-butuh-darah-name", name);
+                    localStorage.setItem("chat-butuh-darah-type", blood + rhesus);
+                    window.location.href="butuh-darah-chat.html";
+                });
+               
+            });
+        </script>
+    </head>
+    <body style="background-color:#ffffff;">
+        <div id="photo-header" style="height:200px;margin-top:60px;background-size: cover;overflow-x: unset; padding-top: 152px;">
+           
+         </div>
+        <div class="container">
+           <p style="margin-top: 10px; font-size: 14px;"><b>#DNR-SJ-JKT-001</b></p>
+           <h4 id="butuh-darah-nama" style="font-weight: bold;"></h4>
+           <p style="margin-top: 16px;">Golongan Darah & Rhesus</p>
+            <div class="row">
+                <div class="col-3">
+                    <div class="option-blood-type activeBloodType" id="gol_darah"></div>
+                </div>
+                <div class="col-3">
+                    <div class="option-rhesus-type activeRhesusType" style="margin-top: 12px;" id="rhesus"></div>
+                </div>
+            </div>
+            <p style="margin-top: 16px;">Lokasi</p>
+            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:18px; width: 18px; margin-right: 8px">
+                <div id="butuh-darah-lokasi" style="font-size: 14px;color:#0275D8;">
+                </div>
+            </div>
+            <p style="margin-top: 16px;">Deskripsi</p>
+            <h6 id="butuh-darah-deskripsi" style="font-weight: bold;"></h6>
+            <button data-toggle="modal" data-target="#exampleModalCenter" type="button" id="donor-resipien" class="btn" style="margin-top: 50px;width: 100%; border-radius: 4px; color: #FFFFFF; background-color: #D9534F;">
+                Bersedia Jadi Pendonor
+            </button>
+            <p id="donor-resipien-text" style="margin-top: 50px; text-align: center;">Terima kasih sudah bersedia menjadi <b>pendonor</b>. Informasi Anda sudah kami sampaikan ke calon resipien</p>
+            <button type="button" id="chat-resipien" class="btn" style="margin-top:14px;width: 100%; border-radius: 4px; color: #FFFFFF; background-color: #5CB85C">
+                Chat
+            </button>
+            <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+        </div>
+
+
+         <!-- Modal -->
+         <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0px">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Bersedia Jadi Pendonor</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                   
+                </div>
+                <div class="modal-footer" style="border-top: 0px">
+                  <button type="button" class="btn" data-dismiss="modal">Batalkan</button>
+                  <button type="button" class="btn" id="ready-donor" data-dismiss="modal"  style="background-color: #5CB85C; color: #fff">Bersedia</button>
+                </div>
+              </div>
+            </div>
+        </div>
+
+        
+        <!-- START - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+        <div id="top-bar" class="top-bar">
+            <i onclick="navigate('home')" class="fa fa-chevron-left" style="color:#373A3C;margin-right: 30px;margin-top: 20px;"></i><span class="top-icon"><img src="../src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive" style="height:50px;width:50px">Si Donar</span>
+            <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;">
+        </div>
+        <div id="bottom-bar" class="bottom-bar">
+            <center>
+                <table>
+                    <tr>
+                        <td class="menu"><a onclick="navigate('home')">
+                            <img id="home" alt="home" class="img-responsive" style="height:28px;">
+                            <br/>Beranda
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('activity')">
+                            <img id="aktivitas" alt="aktivitas" class="img-responsive" style="height:28px;">
+                            <br/>Aktivitas
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('search')">
+                            <img id="cari_darah" alt="cari darah" class="img-responsive" style="height:28px;">
+                            <br/>Cari Darah
+                        </a></td>
+                        <td class="menu"><a onclick="navigate('profile')">
+                            <img id="profile" alt="profil pengguna" class="img-responsive">
+                            <br/>Profil
+                        </a></td>
+                    </tr>
+                </table>        
+            </center>
+        </div>
+        <!-- END - INCLUDE THIS BOTTOM AND TOP BAR IN EVERY HTML PAGE AFTER LOGIN -->
+    </body>
+</html>

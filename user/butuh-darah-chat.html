@@ -16,10 +16,10 @@
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
-                var imgChat = localStorage.getItem("chat-img");
-                var nameChat = localStorage.getItem("chat-name");
-                var cari_darah = JSON.parse(localStorage.getItem("cari_darah"));
-                var golDarRhes = cari_darah[0] + cari_darah[1];
+                var imgChat = '../src/img/need_blood/sample.png'
+                var nameChat = localStorage.getItem("chat-butuh-darah-name");
+                
+                var golDarRhes = localStorage.getItem("chat-butuh-darah-type");
                 
                 var username = getUsername();
 
@@ -41,7 +41,7 @@
                     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.1), 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 4px 4px rgba(0, 0, 0, 0.1);
                     border-radius: 9px;
                     width: 230px; padding: 10px;font-size: 14px;">
-                    Selamat malam ${nameChat} mohon maaf mengganggu, saya butuh darah dengan golongan ${golDarRhes}. Berkenankah Anda menjadi pendonor?
+                    Selamat malam ${nameChat} saya bersedia menjadi pendonor, karena sama-sama golongan ${golDarRhes}.
                         <br/>
                         <div style="float:right; font-weight:bold; font-size: 11px;">
                             ${h}:${m < 10 ? "0"+m : m}
@@ -52,7 +52,7 @@
                     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.1), 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 4px 4px rgba(0, 0, 0, 0.1), 0px 4px 4px rgba(0, 0, 0, 0.1);
                     border-radius: 9px;
                     width: 230px; padding: 10px;font-size: 14px;">
-                    Selamat malam ${username} kebetulan golongan darah saya juga ${golDarRhes}. Oke saya berkenan!
+                    Terima kasih banyak ${username} atas kesediaannya
                         <br/>
                         <div style="float:right; font-weight:bold; font-size: 11px;">
                             ${h}:${m < 10 ? "0"+m : m}
@@ -95,7 +95,7 @@
         <div id="top-bar" class="top-bar">
             <div class="row">
                 <div class="col-1">
-                    <i onclick="navigate('search_result')" class="fa fa-chevron-left" style="color:#373A3C;margin-right: 30px;margin-top: 20px;"></i>
+                    <i onclick="navigate('butuh-darah')" class="fa fa-chevron-left" style="color:#373A3C;margin-right: 30px;margin-top: 20px;"></i>
                 </div>
                 <div class="col-2" style="margin-top: 12px;">
                     <img id="img-chat" style="height:35px;width: 35px; border-radius: 100%; border: 2px solid #373A3C">
