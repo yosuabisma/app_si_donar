@@ -17,6 +17,11 @@
         <script>
             $(document).ready(function(){
                 setActiveMenu('home');
+                /*For Notif*/
+                if(localStorage.getItem("is-notify") === "notif"){
+                    $("#top-bar").find('.notification-bell').attr("src", '../src/img/icons/notification_active_icon.png');
+                }
+                /*For Notif*/
                 activeSelectOption("input-blood", "option-blood-type", "activeBloodType");
                 activeSelectOption("input-rhesus", "option-rhesus-type", "activeRhesusType");
                 $("#cari-button").click(function(){

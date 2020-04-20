@@ -19,6 +19,9 @@
         <script>
             $(document).ready(function(){
                 setActiveMenu('home');
+                if(localStorage.getItem("is-notify") === "notif"){
+                    localStorage.removeItem("is-notify");
+                }
                 var username = getUsername();
                 var email = getEmail();
                 // var 

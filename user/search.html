@@ -17,6 +17,11 @@
         <script>
             $(document).ready(function(){
                 setActiveMenu('cari_darah');
+                /*For Notif*/
+                if(localStorage.getItem("is-notify") === "notif"){
+                    $("#top-bar").find('.notification-bell').attr("src", '../src/img/icons/notification_active_icon.png');
+                }
+                /*For Notif*/
                 var cariDarahArr = JSON.parse(localStorage.getItem("cari_darah"));
                 if(cariDarahArr){
                     //  cariDarahArr[0];

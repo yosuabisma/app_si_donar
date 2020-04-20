@@ -21,7 +21,11 @@
         <script>
             $(document).ready(function(){
                 setActiveMenu('aktivitas');
-                
+                /*For Notif*/
+                if(localStorage.getItem("is-notify") === "notif"){
+                    $("#top-bar").find('.notification-bell').attr("src", '../src/img/icons/notification_active_icon.png');
+                }
+                /*For Notif*/
                 $('#donor-resipien-text').hide();
                 var name = localStorage.getItem("need-blood-name");
                 var img = localStorage.getItem("need-blood-img");

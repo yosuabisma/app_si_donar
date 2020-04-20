@@ -21,6 +21,13 @@
         <script>
             $(document).ready(function(){
                 setActiveMenu('aktivitas');
+
+                /*For Notif*/
+                if(localStorage.getItem("is-notify") === "notif"){
+                    $("#top-bar").find('.notification-bell').attr("src", '../src/img/icons/notification_active_icon.png');
+                }
+                /*For Notif*/
+
                 $('#content-pendonor').hide();
                 $('#tab-pendonor').click(function (e) {
                     $('#tab-pendonor').addClass('activeActivity');
