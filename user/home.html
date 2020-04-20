@@ -36,6 +36,9 @@
             #tab-menu-home{
                 margin-top: 100px;
             }
+            .row{
+                justify-content: center;
+            }
             .tab-menu{
                 background: #FFFFFF;
                 box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.1), 0px 4px 4px rgba(0, 0, 0, 0.1);
@@ -43,6 +46,8 @@
                 width: 85px;
                 height: 85px;
                 padding-top: 8px;
+                margin-left: 10;
+                margin-right: 10;
             }
             .tab-menu-image{
                 height: 50px
@@ -63,7 +68,7 @@
         <div class="container" style="margin-top: 70px;">
             <div id="tab-menu-home">
                 <div class="row" style="text-align: center; color: #535761; font-size: 12px;">
-                    <div class="col">
+                    <div>
                         <a onclick="navigate('stok_darah')">
                             <div class="tab-menu">
                                 <div class="tab-menu-image">
@@ -75,7 +80,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col">
+                    <div>
                         <a onclick="navigate('faskes')">
                             <div class="tab-menu">
                                 <div class="tab-menu-image">
@@ -87,7 +92,7 @@
                             </div>
                         </a>
                     </div>
-                    <div class="col">
+                    <div>
                         <a onclick="navigate('event')">
                             <div class="tab-menu">
                                 <div class="tab-menu-image">
@@ -98,7 +103,6 @@
                                 </div>
                             </div>
                         </a>
-                        
                     </div>
                 </div>
             </div>
