@@ -58,6 +58,43 @@
                         if(pwd != passwordArray[i]) {
                             $("#login-failed").slideDown();
                         }
+                        if(localStorage.getItem("register-valid") === "valid"){
+                            if(email == localStorage.getItem("register-email") && pwd == localStorage.getItem("register-pwd")){
+                                var key = "default";
+                                var name = localStorage.getItem("register-name");
+                                var email = localStorage.getItem("register-email");
+                                var pwd = localStorage.getItem("register-pwd");
+                                var blood = localStorage.getItem("register-blood-type");
+                                var rhesus = localStorage.getItem("register-rhesus-type");
+
+                                setEmail(email);
+                                setUsername(name);
+                                setKey(key);
+                                setKTP(null);
+
+                                var setEmailValue = email;
+                                var alamat = null;
+                                var lat = null;
+                                var long = null;
+                                var no_telp = null;
+                                var no_telp_darurat = null;
+                                var path_foto = '../src/img/profile_photo_default/default.jpg';
+                                setProfile(
+                                    email, 
+                                    blood, 
+                                    rhesus, 
+                                    name, 
+                                    pwd, 
+                                    alamat, 
+                                    lat, 
+                                    long, 
+                                    no_telp, 
+                                    no_telp_darurat, 
+                                    path_foto
+                                );
+                                window.location.href="user/home.html";
+                            }
+                        }
                         if (email == emailArray[i] && pwd == passwordArray[i]) {
                             setEmail(emailArray[i])
                             setUsername(nameArray[i]);
@@ -74,7 +111,7 @@
                             var no_telp = phoneArray[i];
                             var no_telp_darurat = emergencyPhoneArray[i];
                             var path_foto = '../src/img/profile_photo_default/'+keyArray[i]+'.jpg';
-                            console.log(golongan_darah);
+
                             setProfile(
                                 setEmailValue, 
                                 golongan_darah, 

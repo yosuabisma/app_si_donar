@@ -15,6 +15,24 @@
             $(document).ready(function(){
                 activeSelectOption("input-blood", "option-blood-type", "activeBloodType");
                 activeSelectOption("input-rhesus", "option-rhesus-type", "activeRhesusType");
+                var selectedBlood = $("#input-blood-type").find('.activeBloodType').first().text();
+                var selectedRhesus = $("#input-rhesus-type").find('.activeRhesusType').first().text();
+
+                $(".option-blood-type").click(function(){
+                    selectedBlood = $("#input-blood-type").find('.activeBloodType').first().text();
+                    console.log(selectedBlood);
+                });
+                $(".option-rhesus-type").click(function(){
+                    selectedRhesus = $("#input-rhesus-type").find('.activeRhesusType').first().text();
+                    console.log(selectedRhesus);
+                });
+                $("#register-button").click(function(){
+                    localStorage.setItem("register-name", $('#name').val());
+                    localStorage.setItem("register-email", $('#email').val());
+                    localStorage.setItem("register-pwd", $('#pwd').val());
+                    localStorage.setItem("register-blood-type", selectedBlood);
+                    localStorage.setItem("register-rhesus-type", selectedRhesus);
+                });
             });
         </script>
     </head>
@@ -30,27 +48,19 @@
                 <div id="input-blood">
                     <div class="row">
                         <div class="col">
-                            <div class="option-blood-type activeBloodType">
-                                A
-                            </div>
+                            <div class="option-blood-type activeBloodType">A</div>
                         </div>
                         <div class="col">
-                            <div class="option-blood-type">
-                                AB
-                            </div>
+                            <div class="option-blood-type">AB</div>
                         </div>
                         <div class="col"></div>
                     </div>
                     <div class="row">
                         <div class="col">
-                            <div class="option-blood-type">
-                                B
-                            </div>
+                            <div class="option-blood-type">B</div>
                         </div>
                         <div class="col">
-                            <div class="option-blood-type">
-                                O
-                            </div>
+                            <div class="option-blood-type">O</div>
                         </div>
                         <div class="col"></div>
                     </div>
@@ -62,14 +72,10 @@
                 <h6>Rhesus</h6>
                 <div id="input-rhesus" class="row container">
                     <div>
-                        <div class="option-rhesus-type activeRhesusType">
-                            +
-                        </div>
+                        <div class="option-rhesus-type activeRhesusType">+</div>
                     </div>
                     <div class="col">
-                        <div class="option-rhesus-type">
-                            -
-                        </div>
+                        <div class="option-rhesus-type">-</div>
                     </div>
                 </div>
             </div>

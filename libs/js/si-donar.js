@@ -44,9 +44,24 @@ function removeKey(){
 
 
 function logoutApp(){
-    localStorage.clear();
-    // removeUsername();
-    // removeKey();
+    if(localStorage.getItem("register-valid") === "valid"){
+        var key = "default";
+        var name = localStorage.getItem("register-name");
+        var email = localStorage.getItem("register-email");
+        var pwd = localStorage.getItem("register-pwd");
+        var blood = localStorage.getItem("register-blood-type");
+        var rhesus = localStorage.getItem("register-rhesus-type");
+        localStorage.clear();
+        localStorage.setItem("register-name", name);
+        localStorage.setItem("register-email", email);
+        localStorage.setItem("register-pwd", pwd);
+        localStorage.setItem("register-blood-type", blood);
+        localStorage.setItem("register-rhesus-type", rhesus);
+        localStorage.setItem("register-key", key);
+        localStorage.setItem("register-valid", "valid");
+    }else{
+        localStorage.clear();
+    }
 }
 
 function navigate(html){

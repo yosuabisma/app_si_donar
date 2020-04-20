@@ -22,6 +22,10 @@
                 setTimeout(function(){ 
                     $('#myModal').modal('show');
                 }, 6000);
+
+                $("#open-email-btn").click(function(){
+                    localStorage.setItem("register-valid", "valid");
+                });
             });
         </script>
         <style>
@@ -74,7 +78,7 @@
                         <!-- Modal footer -->
                         <div class="modal-footer">
                             <a href="verification-success.html">
-                                <button type="button" class="btn btn-danger">Buka Aplikasi E-mail</button>
+                                <button id="open-email-btn" type="button" class="btn btn-danger">Buka Aplikasi E-mail</button>
                             </a>
                         </div>
                         

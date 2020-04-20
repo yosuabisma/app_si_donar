@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="libs/css/si-donar.css">
         <!-- START - include this script to access local storage function etc-->
         <script src="libs/js/si-donar.js"></script>
+        <script src="libs/js/profile.js"></script>
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
@@ -18,6 +19,47 @@
                     $('.loading').hide();
                     $('.verification-info').show();
                 }, 1500);
+
+                $("#login-button-from-regist").click(function(){
+                    if(localStorage.getItem("register-valid") === "valid"){
+                        var key = "default";
+                        var name = localStorage.getItem("register-name");
+                        var email = localStorage.getItem("register-email");
+                        var pwd = localStorage.getItem("register-pwd");
+                        var blood = localStorage.getItem("register-blood-type");
+                        var rhesus = localStorage.getItem("register-rhesus-type");
+
+                        setEmail(email);
+                        setUsername(name);
+                        setKey(key);
+                        setKTP(null);
+
+                        var setEmailValue = email;
+                        var alamat = null;
+                        var lat = null;
+                        var long = null;
+                        var no_telp = null;
+                        var no_telp_darurat = null;
+                        var path_foto = '../src/img/profile_photo_default/default.jpg';
+                        setProfile(
+                            email, 
+                            blood, 
+                            rhesus, 
+                            name, 
+                            pwd, 
+                            alamat, 
+                            lat, 
+                            long, 
+                            no_telp, 
+                            no_telp_darurat, 
+                            path_foto
+                        );
+                        window.location.href="user/home.html";
+                    }
+                    
+
+                });
+                
             });
         </script>
         <style>
@@ -48,7 +90,7 @@
             </div>
             <br/>
             <h6><b>Selamat akun Anda berhasil diverifikasi</b></h6>
-            <button type="button" id="resend-button" class="btn btn-danger"  data-toggle="modal" data-target="#myModal"
+            <button type="button" id="login-button-from-regist" class="btn btn-danger"  data-toggle="modal" data-target="#myModal"
             style="margin-top: 80px; width: 280px; height: 38px; padding: 6px; border-radius: 8px; background-color: #d9534f;">
                 Masuk ke Aplikasi
             </button>
