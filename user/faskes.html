@@ -36,7 +36,6 @@
                 var suffixRoute = '';
                 var defaultCurrentLocation = 'Salemba+UI,+RT.1%2FRW.3,+Paseban,+Kota+Jakarta+Pusat,+Daerah+Khusus+Ibukota+Jakarta';
 
-                //var direction = '-6.9,106.7824544/Markas+Pusat+PMI,+Jl.+Gatot+Subroto+No.Kav.+96,+RT.4%2FRW.4,+Mampang+Prpt.,+Kec.+Mampang+Prpt.,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta+12160/@-6.5703488,106.5456153,10z/';
                 getLocation();
                 function getLocation() {
                     if (navigator.geolocation) {
@@ -296,6 +295,39 @@
             <div class="row">
                 <div class="col-8">
                     <div style="font-size: 14px; margin-bottom: 4px">
+                        RS Fatmawati
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Fatmawati, Jakarta Selatan
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            2 km dari Anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Rumah+Sakit+Fatmawati,+Jalan+RS.+Fatmawati+Raya,+RT.4%2FRW.9,+Cilandak+Barat,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta/@-6.2947712,106.7605206,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x2e69f1e653901bc1:0xc0478e03aaa208d7!2m2!1d106.7955403!2d-6.2948577">
+                        </div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
                         Medical Center PMI Jakarta Selatan
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
@@ -316,40 +348,6 @@
                         <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
                             <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
                             <input class="value-direction" type="hidden" value="/pmi/@-6.2637617,106.7429067,13z/">
-                        </div>
-                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
-                    </div>
-                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
-                </div>
-            </div>
-            <div>
-                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
-            </div>
-
-            
-            <div class="row">
-                <div class="col-8">
-                    <div style="font-size: 14px; margin-bottom: 4px">
-                        PMI DKI Jakarta
-                    </div>
-                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
-                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                        <div style="font-size: 12px">
-                            Kramat Raya, Jakarta Pusat
-                        </div>
-                    </div>
-                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
-                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
-                        <div style="font-size: 12px">
-                            3 km dari Anda
-                        </div>
-                    </div>
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
-                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
-                            <input class="value-direction" type="hidden" value="/Palang+Merah+Indonesia+(PMI)+Provinsi+DKI+Jakarta,+Jl.+Kramat+Raya+No.RT.3,+RT.3%2FRW.4,+Kramat,+Senen,+Central+Jakarta+City,+Jakarta+10450/@-6.184805,106.8273585,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e69f448f50d925f:0x365cf761bed830cb!2m2!1d106.844868!2d-6.184805">
                         </div>
                         <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
                     </div>
@@ -393,21 +391,23 @@
                 <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
             </div>
 
+
+            
             <div class="row">
                 <div class="col-8">
                     <div style="font-size: 14px; margin-bottom: 4px">
-                        RS Fatmawati
+                        PMI DKI Jakarta
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            Fatmawati, Jakarta Selatan
+                            Kramat Raya, Jakarta Pusat
                         </div>
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            2 km dari Anda
+                            3 km dari Anda
                         </div>
                     </div>
                 </div>
@@ -415,7 +415,7 @@
                     <div class="row">
                         <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
                             <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
-                            <input class="value-direction" type="hidden" value="/Rumah+Sakit+Fatmawati,+Jalan+RS.+Fatmawati+Raya,+RT.4%2FRW.9,+Cilandak+Barat,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta/@-6.2947712,106.7605206,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x2e69f1e653901bc1:0xc0478e03aaa208d7!2m2!1d106.7955403!2d-6.2948577">
+                            <input class="value-direction" type="hidden" value="/Palang+Merah+Indonesia+(PMI)+Provinsi+DKI+Jakarta,+Jl.+Kramat+Raya+No.RT.3,+RT.3%2FRW.4,+Kramat,+Senen,+Central+Jakarta+City,+Jakarta+10450/@-6.184805,106.8273585,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e69f448f50d925f:0x365cf761bed830cb!2m2!1d106.844868!2d-6.184805">
                         </div>
                         <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
                     </div>
@@ -425,6 +425,7 @@
             <div>
                 <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
             </div>
+
 
             <div id="muat"></div>
 
