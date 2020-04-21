@@ -7,6 +7,7 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="./libs/css/si-donar.css">
         <!-- START - include this script to access local storage function etc-->
         <script src="libs/js/si-donar.js"></script>
         <!-- END - include this script to access local storage function etc-->
@@ -16,15 +17,11 @@
                 $("#loading-screen").fadeIn(500);
                 setTimeout(function() {
                     $("#loading-screen").hide();
-                    // enable this comment to test clear local storage
-                    // removeUsername();
                     if(getUsername() == null){
-                        // $("#login-screen").fadeIn(250);
                         window.location.href="login.html";
                     }else{
                         window.location.href="user/home.html";
                     }
-                   
                 }, 2000);
             });
         </script>
@@ -34,13 +31,15 @@
             <div style="text-align:center;margin-top: 50%">
                 <img src="src/img/logo_si_donar.png" alt="logo_si_donar"
                 style="height:150px;width:150px">
-                <h1 style="font-weight: bold; margin-top:-20px; letter-spacing: 1px">Si Donar</h1>
+                <h2 class="top-icon" style="font-weight: bold; margin-top:-20px; letter-spacing: 1px">Si Donar</h2>
+                <p class="top-icon" style="font-size: 12px;">Sharing is Caring</p>
             </div>
         </div>
         <div id="login-screen" class="container" style="text-align:center; margin-top: 40px;">
             <img src="src/img/logo_si_donar.png" alt="logo_si_donar" class="img-responsive"
             style="height:150px;width:150px">
-            <h2 style="font-weight: bold; margin-top:-20px; letter-spacing: 1px">Si Donar</h2>
+            <h2 class="top-icon" style="font-weight: bold; margin-top:-20px; letter-spacing: 1px">Si Donar</h2>
+            <p class="top-icon" style="font-size: 12px;">Sharing is Caring</p>
             <div class="button-section" style="margin-top: 90px;">
                 <h6>Sudah punya akun?</h6>
                 <a href="login.html">

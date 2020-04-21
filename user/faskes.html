@@ -27,94 +27,221 @@
                 /*For Notif*/
                 var username = getUsername();
                 var email = getEmail();
+
+                
+                var latLocation = '';
+                var longLocation = '';
+                var isSupportedLocation = false;
+                var prefixRoute = 'https://www.google.com/maps/dir/';
+                var suffixRoute = '';
+                var defaultCurrentLocation = 'Salemba+UI,+RT.1%2FRW.3,+Paseban,+Kota+Jakarta+Pusat,+Daerah+Khusus+Ibukota+Jakarta';
+
+                //var direction = '-6.9,106.7824544/Markas+Pusat+PMI,+Jl.+Gatot+Subroto+No.Kav.+96,+RT.4%2FRW.4,+Mampang+Prpt.,+Kec.+Mampang+Prpt.,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta+12160/@-6.5703488,106.5456153,10z/';
+                getLocation();
+                function getLocation() {
+                    if (navigator.geolocation) {
+                        navigator.geolocation.getCurrentPosition(
+                            showPosition, 
+                            error, 
+                            {enableHighAccuracy: true,
+                            timeout: 5000,
+                            maximumAge: 0}
+                        );
+                    } else { 
+                        alert("Geolocation is not supported");
+                        isSupportedLocation = false;
+                    }
+                }
+
+                function showPosition(position) {
+                    latLocation = position.coords.latitude;
+                    longLocation = position.coords.longitude;
+                    console.log(position.coords.accuracy);
+                    isSupportedLocation = true;
+                }
+
+                function error(err) {
+                    console.warn(`ERROR(${err.code}): ${err.message}`);
+                }
+
+                $(".direction-button").click(function(){
+                    var currentLocation = '';
+                    if(isSupportedLocation === true){
+                        currentLocation = `${latLocation},${longLocation}`;
+                        console.log(currentLocation);
+                        suffixRoute = $(this).find('.value-direction').val();
+                    }else{
+                        currentLocation = defaultCurrentLocation;
+                        suffixRoute = $(this).find('.value-direction').val();
+                    }
+                    var fullLink = prefixRoute + currentLocation + suffixRoute;
+                    window.open(fullLink, "_blank");
+                });
+                
+                
                 $("#muat-button").click(function(){
                     $("#muat").append(`<div class="row">
-                        <div class="col-8">
-                            <div style="font-size: 14px; margin-bottom: 4px">
-                                PMI PUSAT
-                            </div>
-                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Pasming
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    2 km dari anda
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
-                                <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
-                            </div>
-                            <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        Markas Pusat PMI
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Jl. Gatot Subroto, Jakarta Selatan
                         </div>
                     </div>
-                    <div>
-                        <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            3 km dari Anda
+                        </div>
                     </div>
+                </div>
+                <div class="col-4">
                     <div class="row">
-                        <div class="col-8">
-                            <div style="font-size: 14px; margin-bottom: 4px">
-                                PMI PUSAT
-                            </div>
-                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Pasming
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    2 km dari anda
-                                </div>
-                            </div>
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Markas+Pusat+PMI,+Jl.+Gatot+Subroto+No.Kav.+96,+RT.4%2FRW.4,+Mampang+Prpt.,+Kec.+Mampang+Prpt.,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta+12160/@-6.5703488,106.5456153,10z/">
                         </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
-                                <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
-                            </div>
-                            <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        Medical Center PMI Jakarta Selatan
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Pejaten, Jakarta Selatan
                         </div>
                     </div>
-                    <div>
-                        <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            3 km dari Anda
+                        </div>
                     </div>
+                </div>
+                <div class="col-4">
                     <div class="row">
-                        <div class="col-8">
-                            <div style="font-size: 14px; margin-bottom: 4px">
-                                PMI PUSAT
-                            </div>
-                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    Pasming
-                                </div>
-                            </div>
-                            <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
-                                <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
-                                <div style="font-size: 12px">
-                                    2 km dari anda
-                                </div>
-                            </div>
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/pmi/@-6.2637617,106.7429067,13z/">
                         </div>
-                        <div class="col-4">
-                            <div class="row">
-                                <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
-                                <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
-                            </div>
-                            <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+
+            
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        PMI DKI Jakarta
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Kramat Raya, Jakarta Pusat
                         </div>
                     </div>
-                    <div>
-                        <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
-                    </div>`);
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            3 km dari Anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Palang+Merah+Indonesia+(PMI)+Provinsi+DKI+Jakarta,+Jl.+Kramat+Raya+No.RT.3,+RT.3%2FRW.4,+Kramat,+Senen,+Central+Jakarta+City,+Jakarta+10450/@-6.184805,106.8273585,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e69f448f50d925f:0x365cf761bed830cb!2m2!1d106.844868!2d-6.184805">
+                        </div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        RS Pusat Pertamina
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Kyai Maja, Jakarta Selatan
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            1 km dari Anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Rumah+Sakit+Pusat+Pertamina,+Jl.+Kyai+Maja+No.43,+RT.4%2FRW.8,+Gunung,+Kec.+Kby.+Baru,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta+12120/@-6.291007,106.7325961,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e69f1154bd2136f:0x7e77a1cc528bf204!2m2!1d106.7933065!2d-6.2399482">
+                        </div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>
+            <div>
+                <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
+            </div>
+
+            <div class="row">
+                <div class="col-8">
+                    <div style="font-size: 14px; margin-bottom: 4px">
+                        RS Fatmawati
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            Fatmawati, Jakarta Selatan
+                        </div>
+                    </div>
+                    <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
+                        <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
+                        <div style="font-size: 12px">
+                            2 km dari Anda
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Rumah+Sakit+Fatmawati,+Jalan+RS.+Fatmawati+Raya,+RT.4%2FRW.9,+Cilandak+Barat,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta/@-6.2947712,106.7605206,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x2e69f1e653901bc1:0xc0478e03aaa208d7!2m2!1d106.7955403!2d-6.2948577">
+                        </div>
+                        <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
+                    </div>
+                    <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
+                </div>
+            </div>`);
                     document.getElementById("muat-button").style.visibility = "hidden";
                 });
             });
@@ -136,24 +263,27 @@
             <div class="row">
                 <div class="col-8">
                     <div style="font-size: 14px; margin-bottom: 4px">
-                        PMI PUSAT
+                        Markas Pusat PMI
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            Pasming
+                            Jl. Gatot Subroto, Jakarta Selatan
                         </div>
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            2 km dari anda
+                            3 km dari Anda
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="row">
-                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Markas+Pusat+PMI,+Jl.+Gatot+Subroto+No.Kav.+96,+RT.4%2FRW.4,+Mampang+Prpt.,+Kec.+Mampang+Prpt.,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta+12160/@-6.5703488,106.5456153,10z/">
+                        </div>
                         <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
                     </div>
                     <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
@@ -162,27 +292,31 @@
             <div>
                 <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
             </div>
+
             <div class="row">
                 <div class="col-8">
                     <div style="font-size: 14px; margin-bottom: 4px">
-                        PMI PUSAT
+                        Medical Center PMI Jakarta Selatan
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            Pasming
+                            Pejaten, Jakarta Selatan
                         </div>
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            2 km dari anda
+                            3 km dari Anda
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="row">
-                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/pmi/@-6.2637617,106.7429067,13z/">
+                        </div>
                         <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
                     </div>
                     <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
@@ -191,27 +325,32 @@
             <div>
                 <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
             </div>
+
+            
             <div class="row">
                 <div class="col-8">
                     <div style="font-size: 14px; margin-bottom: 4px">
-                        PMI PUSAT
+                        PMI DKI Jakarta
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            Pasming
+                            Kramat Raya, Jakarta Pusat
                         </div>
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            2 km dari anda
+                            3 km dari Anda
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="row">
-                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Palang+Merah+Indonesia+(PMI)+Provinsi+DKI+Jakarta,+Jl.+Kramat+Raya+No.RT.3,+RT.3%2FRW.4,+Kramat,+Senen,+Central+Jakarta+City,+Jakarta+10450/@-6.184805,106.8273585,14z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e69f448f50d925f:0x365cf761bed830cb!2m2!1d106.844868!2d-6.184805">
+                        </div>
                         <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
                     </div>
                     <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
@@ -220,27 +359,31 @@
             <div>
                 <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
             </div>
+
             <div class="row">
                 <div class="col-8">
                     <div style="font-size: 14px; margin-bottom: 4px">
-                        PMI PUSAT
+                        RS Pusat Pertamina
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            Pasming
+                            Kyai Maja, Jakarta Selatan
                         </div>
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            2 km dari anda
+                            1 km dari Anda
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="row">
-                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Rumah+Sakit+Pusat+Pertamina,+Jl.+Kyai+Maja+No.43,+RT.4%2FRW.8,+Gunung,+Kec.+Kby.+Baru,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta+12120/@-6.291007,106.7325961,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x2e69f1154bd2136f:0x7e77a1cc528bf204!2m2!1d106.7933065!2d-6.2399482">
+                        </div>
                         <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
                     </div>
                     <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
@@ -249,27 +392,31 @@
             <div>
                 <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
             </div>
+
             <div class="row">
                 <div class="col-8">
                     <div style="font-size: 14px; margin-bottom: 4px">
-                        PMI PUSAT
+                        RS Fatmawati
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/location.svg" alt="notifikasi" style="height:14px; width: 14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            Pasming
+                            Fatmawati, Jakarta Selatan
                         </div>
                     </div>
                     <div class="row" style="margin-left: 0px;  margin-bottom: 4px">
                         <img src="../src/img/icons/distance.svg" alt="notifikasi" style="height:14px; padding-top: 2px; margin-right: 8px">
                         <div style="font-size: 12px">
-                            2 km dari anda
+                            2 km dari Anda
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="row">
-                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus"><img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div>
+                        <div class="direction-button" style="margin-top: 16px; margin-right: 12px" id="rhesus">
+                            <img src="../src/img/icons/direction.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;">
+                            <input class="value-direction" type="hidden" value="/Rumah+Sakit+Fatmawati,+Jalan+RS.+Fatmawati+Raya,+RT.4%2FRW.9,+Cilandak+Barat,+Kota+Jakarta+Selatan,+Daerah+Khusus+Ibukota+Jakarta/@-6.2947712,106.7605206,13z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x2e69f1e653901bc1:0xc0478e03aaa208d7!2m2!1d106.7955403!2d-6.2948577">
+                        </div>
                         <a href="tel:+62123123123"><div class="call-button" style="margin-top: 16px;" id="rhesus"><img src="../src/img/icons/telp.svg" alt="notifikasi" class="img-responsive notification-bell" style="height:28px; margin-right: 6px; margin-top: 7px;"></div></a>
                     </div>
                     <!-- <img src="../src/img/icons/notification_icon.png" alt="notifikasi" class="img-responsive notification-bell" style="height:28px;"> -->
@@ -278,6 +425,7 @@
             <div>
                 <hr style="margin-top:4px; margin-bottom: 4px; width: 100%; background-color: #999999">
             </div>
+
             <div id="muat"></div>
 
             <div class="row justify-content-center" style="margin-top: 32px; margin-bottom: 120px">

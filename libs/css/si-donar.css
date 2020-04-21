@@ -110,3 +110,12 @@ a{
     background-color: #d9534f;
     color: #ffffff;
 }
+
+@font-face {
+    font-family: siDonarLogoText;
+    src: url(font/LoveYaLikeASister.ttf);
+}
+
+.top-icon{
+    font-family: siDonarLogoText;
+}
