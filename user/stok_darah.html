@@ -13,10 +13,23 @@
         <!-- END - include this css-->
         <!-- START - include this script to access local storage function etc-->
         <script src="../libs/js/si-donar.js"></script>
+        <script src="../libs/js/profile.js"></script>
         <!-- END - include this script to access local storage function etc-->
         <script>
             $(document).ready(function(){
                 setActiveMenu('home');
+
+                var email = getEmail();
+                var profile = getProfile(email);
+                if(profile[5] == null || profile[8] == null || profile[9] == null){
+                    $('#forbiddenModal').modal(
+                        {
+                            backdrop: 'static',
+                            keyboard: true, 
+                            show: true
+                        }
+                    );
+                }
                 /*For Notif*/
                 if(localStorage.getItem("is-notify") === "notif"){
                     $("#top-bar").find('.notification-bell').attr("src", '../src/img/icons/notification_active_icon.png');
@@ -34,6 +47,25 @@
         </script>
     </head>
     <body style="background-color:#ffffff;">
+        <div class="modal fade" id="forbiddenModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header" style="border-bottom: 0px">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Peringatan!</h5>
+                  <button type="button" class="close" aria-label="Close" onclick="navigate('home')">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                    Untuk menggunakan layanan stok darah, harap lengkapi profil Anda terlebih dahulu.
+                </div>
+                <div class="modal-footer" style="border-top: 0px">
+                  <button type="button" class="btn" onclick="navigate('home')">Batalkan</button>
+                  <button type="button" class="btn" id="activate-gps" onclick="navigate('profile-edit')" style="background-color: #5CB85C; color: #fff">Lengkapi</button>
+                </div>
+              </div>
+            </div>
+        </div>
         <div class="container" style="text-align: left;margin-top: 100px;">
             <h5><b>Pilih Darah yang Dicari</b></h5>
         </div>
