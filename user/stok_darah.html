@@ -21,15 +21,15 @@
 
                 var email = getEmail();
                 var profile = getProfile(email);
-                if(profile[5] == null || profile[8] == null || profile[9] == null){
-                    $('#forbiddenModal').modal(
-                        {
-                            backdrop: 'static',
-                            keyboard: true, 
-                            show: true
-                        }
-                    );
-                }
+                // if(profile[5] == null || profile[8] == null || profile[9] == null){
+                //     $('#forbiddenModal').modal(
+                //         {
+                //             backdrop: 'static',
+                //             keyboard: true, 
+                //             show: true
+                //         }
+                //     );
+                // }
                 /*For Notif*/
                 if(localStorage.getItem("is-notify") === "notif"){
                     $("#top-bar").find('.notification-bell').attr("src", '../src/img/icons/notification_active_icon.png');

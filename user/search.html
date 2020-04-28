@@ -38,21 +38,28 @@
                 }
                 var email = getEmail();
                 var profile = getProfile(email);
-                if(profile[5] == null || profile[8] == null || profile[9] == null){
-                    $('#forbiddenModal').modal(
-                        {
-                            backdrop: 'static',
-                            keyboard: true, 
-                            show: true
-                        }
-                    );
-                }else{
-                    if(localStorage.getItem("gps") != 'active'){
-                        $('#exampleModalCenter').modal('show');
-                        $("#activate-gps").click(function(){
-                            localStorage.setItem("gps", "active");
-                        });
-                    }
+                // if(profile[5] == null || profile[8] == null || profile[9] == null){
+                //     $('#forbiddenModal').modal(
+                //         {
+                //             backdrop: 'static',
+                //             keyboard: true, 
+                //             show: true
+                //         }
+                //     );
+                // }else{
+                //     if(localStorage.getItem("gps") != 'active'){
+                //         $('#exampleModalCenter').modal('show');
+                //         $("#activate-gps").click(function(){
+                //             localStorage.setItem("gps", "active");
+                //         });
+                //     }
+                // }
+
+                if(localStorage.getItem("gps") != 'active'){
+                    $('#exampleModalCenter').modal('show');
+                    $("#activate-gps").click(function(){
+                        localStorage.setItem("gps", "active");
+                    });
                 }
                 
                 
