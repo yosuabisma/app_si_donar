@@ -34,7 +34,7 @@
                 var blood = localStorage.getItem("need-blood-blood");
                 var rhesus = localStorage.getItem("need-blood-rhesus");
 
-                $('.modal-body').append(`Apakah Anda bersedia menjadi pendonor untuk <span><b>${name}</b></span>?`);
+                //$('.modal-body').append(`Apakah Anda bersedia menjadi pendonor untuk <span><b>${name}</b></span>?`);
                 document.getElementById("photo-header").style['background-image'] = "url('"+img+"')";
                 $('#butuh-darah-nama').append(name);
                 $('#butuh-darah-lokasi').append(loc);
@@ -49,6 +49,21 @@
 
                 $('#ready-donor').click(function (e) {
                    $('#donor-resipien').hide();
+                   var dateReady = $('#date-ready').val();
+                   var timeReady = $('#time-ready').val();
+                   var faskesReady = $('#faskes-ready').val();
+                    var parts = dateReady.split("-");
+                    var finalDate = parts[2] + '-' + converterDate(parts[1]) + '-' + parts[0];
+                   $('#donor-resipien-text').append(
+                       
+                       `<p>Terima kasih sudah bersedia menjadi <b>pendonor</b>. Informasi Anda sudah kami sampaikan ke calon resipien<br/>
+                        <br/>
+                       Tanggal: <b>${finalDate}</b><br/>
+                       Pukul: <b>${timeReady}</b><br/>
+                       Faskes: <b>${faskesReady}</b><br/>
+                       </p>
+                       `
+                   );
                    $('#donor-resipien-text').show();
                 });
 
@@ -57,6 +72,12 @@
                     localStorage.setItem("chat-butuh-darah-type", blood + rhesus);
                     window.location.href="butuh-darah-chat.html";
                 });
+
+                function converterDate(str){
+                    var intIndexMonth = parseInt(str);
+                    var months = ['Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni', 'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'];
+                    return months[intIndexMonth-1];
+                }
                
             });
         </script>
@@ -88,7 +109,9 @@
             <button data-toggle="modal" data-target="#exampleModalCenter" type="button" id="donor-resipien" class="btn" style="margin-top: 50px;width: 100%; border-radius: 4px; color: #FFFFFF; background-color: #D9534F;">
                 Bersedia Jadi Pendonor
             </button>
-            <p id="donor-resipien-text" style="margin-top: 50px; text-align: center;">Terima kasih sudah bersedia menjadi <b>pendonor</b>. Informasi Anda sudah kami sampaikan ke calon resipien</p>
+            <div id="donor-resipien-text" style="margin-top: 50px; text-align: left; padding: 4px;">
+            
+            </div>
             <button type="button" id="chat-resipien" class="btn" style="margin-top:14px;width: 100%; border-radius: 4px; color: #FFFFFF; background-color: #5CB85C">
                 Chat
             </button>
@@ -107,7 +130,53 @@
                   </button>
                 </div>
                 <div class="modal-body">
-                   
+                   <div class="row">
+                       <div class="col">
+                           Pilih Tanggal
+                           <input type="date" id="date-ready" class="form-control">
+                       </div>
+                       <div class="col">
+                           Pilih Jam
+                           <select class="form-control" id="time-ready">
+                            <option value="00:00">00:00</option>
+                            <option value="01:00">01:00</option>
+                            <option value="02:00">02:00</option>
+                            <option value="03:00">03:00</option>
+                            <option value="04:00">04:00</option>
+                            <option value="05:00">05:00</option>
+                            <option value="06:00">06:00</option>
+                            <option value="07:00">07:00</option>
+                            <option value="08:00">08:00</option>
+                            <option value="09:00">09:00</option>
+                            <option value="10:00">10:00</option>
+                            <option value="11:00">11:00</option>
+                            <option value="12:00">12:00</option>
+                            <option value="13:00">13:00</option>
+                            <option value="14:00">14:00</option>
+                            <option value="15:00">15:00</option>
+                            <option value="16:00">16:00</option>
+                            <option value="17:00">17:00</option>
+                            <option value="18:00">18:00</option>
+                            <option value="19:00">19:00</option>
+                            <option value="20:00">20:00</option>
+                            <option value="21:00">21:00</option>
+                            <option value="22:00">22:00</option>
+                            <option value="23:00">23:00</option>
+                          </select>
+                       </div>
+                   </div>
+                   <div class="row" style="margin-top: 10px;">
+                       <div class="col">
+                        Pilih Faskes
+                        <select class="form-control" id="faskes-ready">
+                         <option value="Markas Pusat PMI">Markas Pusat PMI</option>
+                         <option value="RS Fatmawati">RS Fatmawati</option>
+                         <option value="Medical Center PMI Jakarta Selatan">Medical Center PMI Jakarta Selatan</option>
+                         <option value="RS Pusat Pertamina">RS Pusat Pertamina</option>
+                         <option value="PMI DKI Jakarta">PMI DKI Jakarta</option>
+                       </select>
+                       </div>
+                   </div>
                 </div>
                 <div class="modal-footer" style="border-top: 0px">
                   <button type="button" class="btn" data-dismiss="modal">Batalkan</button>
